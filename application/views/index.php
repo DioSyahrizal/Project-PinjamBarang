@@ -1,3 +1,10 @@
+<?php
+  $session_data = $this->session->userdata('logged in');
+	$data['name'] = $session_data['name'];
+	$data['status'] = $session_data['status'];
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>HTML Template</title>
+	<title>Pinjam Barang</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -39,23 +46,19 @@
 <body>
 	<!-- Header -->
 	<header id="home">
-		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('<?=base_url()?>assets/img/background1.jpg');">
-			<div class="overlay"></div>
-		</div>
-		<!-- /Background Image -->
-
 		<!-- Nav -->
-		<nav id="nav" class="navbar nav-transparent">
+
+		<nav id="nav" class="navbar nav">
 			<div class="container">
 
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
 						<a href="index.html">
-							<img class="logo" src="<?=base_url()?>assets/img/logo.png" alt="logo">
-							<img class="logo-alt" src="<?=base_url()?>assets/img/logo-alt.png" alt="logo">
-						</a>
+							<img class="logo" src="<?=base_url()?>assets/img/logo.jpeg" alt="logo">
+							</a>
+
+
 					</div>
 					<!-- /Logo -->
 
@@ -67,18 +70,30 @@
 				</div>
 
 				<!--  Main navigation  -->
-				<ul class="main-nav nav navbar-nav navbar-right">
+				<ul class="main-nav nav navbar-nav">
 					<li><a href="#home">Home</a></li>
-					<li><a href="#service">Services</a></li>
+				</ul>
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<!-- <li><a href="#service">Services</a></li>
 					<li><a href="#team">Team</a></li>
-					<li><a href="#contact">Contact</a></li>
-					<li class="has-dropdown"><a href="#blog">Login</a>
+					<li><a href="#contact">Contact</a></li> -->
+					<?php
+           				if(!empty($data['name'])) {
+					?>
+					<li class="has-dropdown"><a href="#"><?php echo $data['name']?></a>
 						<ul class="dropdown">
-							<li><a href="<?=site_url()?>/Admin/">Admin</a></li>
-							<li><a href="<?=site_url()?>/User/">User</a></li>
-							<li><a href="#">Logout</a></li>
+							<?php if($data['status'] == 'admin') {?>
+								<li><a href="<?=site_url()?>/Admin/">Admin</a></li>
+							<?php } else{ ?>
+								<li><a href="<?=site_url()?>/User/">User</a></li>
+							<?php } ?>
+							<li><a href="<?=site_url()?>/Login/logout">Logout</a></li>
 						</ul>
 					</li>
+					<?php } else{ ?>
+					<li><a href="<?=site_url()?>/Login/daftar">Daftar</a></li>
+					<li><a href="<?=site_url()?>/Login/login">Login</a></li>
+					<?php } ?>
 				</ul>
 				<!-- /Main navigation -->
 
@@ -86,6 +101,7 @@
 		</nav>
 		<!-- /Nav -->
 
+		<!-- /Background Image -->
 		<!-- home wrapper -->
 		<div class="home-wrapper">
 			<div class="container">
@@ -94,10 +110,9 @@
 					<!-- home content -->
 					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
-							<h1 class="white-text">We Are Creative Agency</h1>
-							<p class="white-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
+							<h1 class="black-text">We Are Creative Agency</h1>
+							<p class="black-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
 							</p>
-							<button class="white-btn">Get Started!</button>
 							<button class="main-btn">Learn more</button>
 						</div>
 					</div>
@@ -473,13 +488,5 @@
 	</div>
 	<!-- /Preloader -->
 
-	<!-- jQuery Plugins -->
-	<script type="text/javascript" src="<?=base_url()?>assets/js/jquery.min.js"></script>
-	<script type="text/javascript" src="<?=base_url()?>assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<?=base_url()?>assets/js/owl.carousel.min.js"></script>
-	<script type="text/javascript" src="<?=base_url()?>assets/js/jquery.magnific-popup.js"></script>
-	<script type="text/javascript" src="<?=base_url()?>assets/js/main.js"></script>
-
-</body>
-
-</html>
+	<?php $this->load->view('footer.php');
+	?>

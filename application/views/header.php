@@ -131,7 +131,6 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?= site_url()?>/Login/daftar"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li><a href="<?= site_url()?>/Login/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<li><a href="<?= site_url()?>/Login/logout">Logout</a></li>
 				</ul>
 			</div>
 		</nav>

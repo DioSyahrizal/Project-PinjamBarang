@@ -47,8 +47,11 @@
 	<!-- Header -->
 	<header id="home">
 		<!-- Nav -->
-
-		<nav id="nav" class="navbar nav">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url('<?=base_url()?>assets/img/schneider.jpeg');">
+			<div class="overlay"></div>
+		</div>
+		<nav id="nav" class="navbar nav nav-transparent">
 			<div class="container">
 
 				<div class="navbar-header">
@@ -56,9 +59,7 @@
 					<div class="navbar-brand">
 						<a href="index.html">
 							<img class="logo" src="<?=base_url()?>assets/img/logo.jpeg" alt="logo">
-							</a>
-
-
+						</a>
 					</div>
 					<!-- /Logo -->
 
@@ -80,12 +81,13 @@
 					<?php
            				if(!empty($data['name'])) {
 					?>
-					<li class="has-dropdown"><a href="#"><?php echo $data['name']?></a>
+					<li class="has-dropdown"><a href="#">
+							<?php echo $data['name']?></a>
 						<ul class="dropdown">
 							<?php if($data['status'] == 'admin') {?>
-								<li><a href="<?=site_url()?>/Admin/">Admin</a></li>
+							<li><a href="<?=site_url()?>/Admin/">Admin</a></li>
 							<?php } else{ ?>
-								<li><a href="<?=site_url()?>/User/">User</a></li>
+							<li><a href="<?=site_url()?>/User/">User</a></li>
 							<?php } ?>
 							<li><a href="<?=site_url()?>/Login/logout">Logout</a></li>
 						</ul>
@@ -110,8 +112,8 @@
 					<!-- home content -->
 					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
-							<h1 class="black-text">We Are Creative Agency</h1>
-							<p class="black-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
+							<h1 class="white-text">Schneider Electric</h1>
+							<p class="white-text">Peminjaman Barang
 							</p>
 							<button class="main-btn">Learn more</button>
 						</div>

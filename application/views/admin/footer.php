@@ -15,6 +15,34 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url()?>assets/dist/js/sb-admin-2.js"></script>
 
+    <script>
+		$(document).ready(function () {
+			// Initialize select2
+      $('#cancel').hide();
+			$("#update").click(function(e){
+                $("input").prop('disabled', false);
+                $('#submit').prop('disabled', false);
+                $(this).hide();
+                $('#cancel').show();
+      });
+      $('#cancel').click(function(){
+                $("input").prop('disabled', true);
+                $('#submit').prop('disabled', true);
+                $(this).hide();
+                $('#update').show();
+      });
+      $('ul.tabs li').click(function(){
+        var tab_id = $(this).attr('data-tab');
+
+        $('ul.tabs li').removeClass('current');
+        $('.tab-content').removeClass('current');
+
+        $(this).addClass('current');
+        $("#"+tab_id).addClass('current');
+      });
+		});
+
+	</script>
 </body>
 
 </html>

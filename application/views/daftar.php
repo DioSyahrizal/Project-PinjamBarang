@@ -25,8 +25,6 @@
 		<button type="submit" class="btn btn-primary btn-block button">Log in</button>
 	</div>
 	<?php echo form_close(); ?>
-	<p class="text-center"><a href="#">Create an Account</a></p>
-
 </div>
 
 <?php $this->load->view('footer'); ?>

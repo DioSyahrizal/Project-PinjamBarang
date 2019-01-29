@@ -27,6 +27,21 @@
             $this->db->insert('user',$object);
         }
 
+        public function updateUser($id){
+            $data = array(
+                    'name'=>$this->input->post('name'),
+                    'departement'=>$this->input->post('departement'),
+            );
+            $this->db->where('id',$id);
+            $this->db->update('user',$data);
+        }
+
+        public function getUser($id){
+            $this->db->where('id', $id);
+            $query = $this->db->get('user');
+		    return $query->result();
+        }
+
 
     }
 

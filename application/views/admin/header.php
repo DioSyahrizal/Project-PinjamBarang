@@ -141,6 +141,9 @@
                                 <li>
                                     <a href="<?=site_url()?>/Admin/pinjam">Tabel Peminjaman</a>
                                 </li>
+                                <li>
+                                    <a href="<?=site_url()?>/Admin/pengembalian">Tabel Pengembalian</a>
+                                </li>
                             </ul>
                         </li>
                         <li>

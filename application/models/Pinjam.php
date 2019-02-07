@@ -18,12 +18,19 @@
         }
 
         function getPinjamAll(){
+            $this->db->where('status !=',"Kembali");
             $query = $this->db->get('peminjaman');
+            return $query->result();
+        }
+
+        function getProsKembali(){
+            $query = $this->db->query('SELECT * FROM `peminjaman` WHERE status = "Ada"');
             return $query->result();
         }
 
         function getPinjamByUser($id)
         {
+            $this->db->where('status !=',"Kembali");
             $this->db->where('id_user',$id);
             $query = $this->db->get('peminjaman');
             return $query->result();
@@ -31,7 +38,15 @@
 
         function getPinjamByID($id)
         {
+            $this->db->where('status !=',"Kembali");
             $this->db->where('id_pinjam',$id);
+            $query = $this->db->get('peminjaman');
+            return $query->result();
+        }
+
+        function getHistoryByID($id)
+        {
+            $this->db->where('id_user',$id);
             $query = $this->db->get('peminjaman');
             return $query->result();
         }
@@ -56,6 +71,15 @@
                 $this->db->update('peminjaman',$data);
             }
 
+        }
+
+        function prosesKembali($id)
+        {
+            $data = array(
+                'status'=>'Kembali',
+            );
+            $this->db->where('id_pinjam',$id);
+            $this->db->update('peminjaman',$data);
         }
 
     }

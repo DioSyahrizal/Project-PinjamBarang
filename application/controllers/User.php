@@ -42,6 +42,17 @@
             }
         }
 
+        public function history()
+        {
+            if ($this->session->userdata('logged in')) {
+                $session_data = $this->session->userdata('logged in');
+                $data['id'] = $session_data['id'];
+                $this->load->model('Pinjam');
+                $tampil['tabel'] = $this->Pinjam->getHistoryByID($data['id']);
+                $this->load->view('user/history', $tampil);
+            }
+        }
+
         public function data_server($id)
         {
             $this->load->library('Datatables');

@@ -16,7 +16,7 @@
                                     <i class="fa fa-cog fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $count[0]->count_barang ?></div>
+                                    <div class="huge"><?php echo $countBarang[0]->count_barang ?></div>
                                     <div>List Barang</div>
                                 </div>
                             </div>
@@ -38,7 +38,7 @@
                                     <i class="fa fa-arrow-left fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?php echo $countKembali[0]->kembali ?></div>
                                     <div>Barang Kembali</div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge"><?php echo $countPermintaan[0]->permintaan ?></div>
                                     <div>Permintaan</div>
                                 </div>
                             </div>

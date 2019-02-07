@@ -24,6 +24,20 @@
             return $query->result();
         }
 
+        function countPermintaan(){
+            $query = $this->db->query("SELECT count(*) as permintaan from peminjaman WHERE status='Proses Cek'");
+            return $query->result();
+        }
+
+        function countDipinjam(){
+            $query = $this->db->query("");
+        }
+
+        function countKembali(){
+            $query = $this->db->query("SELECT count(*) as kembali FROM peminjaman WHERE status='Kembali'");
+            return $query->result();
+        }
+
     }
 
     /* End of file Barang.php */

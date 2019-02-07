@@ -15,7 +15,9 @@
             $session_data = $this->session->userdata('logged in');
             if ($session_data && $session_data['status']=='admin') {
                 $this->load->model('barang');
-                $data['count']=$this->barang->countBarang();
+                $data['countBarang']=$this->barang->countBarang();
+                $data['countPermintaan']=$this->barang->countPermintaan();
+                $data['countKembali']=$this->barang->countKembali();
                 $this->load->view('admin/index',$data);
             }else{
                 redirect('Welcome','refresh');
@@ -95,6 +97,20 @@
         {
             $this->load->model('Pinjam');
             $this->Pinjam->prosesPinjam($id);
+            redirect('admin/index','refresh');
+
+        }
+
+        public function pengembalian(){
+            $this->load->model('Pinjam');
+            $data['pinjam']=$this->Pinjam->getProsKembali();
+            $this->load->view('admin/pengembalian', $data);
+        }
+
+        public function prosesKembali($id)
+        {
+            $this->load->model('Pinjam');
+            $this->Pinjam->prosesKembali($id);
             redirect('admin/index','refresh');
 
         }

@@ -25,7 +25,7 @@
         }
 
         function countPermintaan(){
-            $query = $this->db->query("SELECT count(*) as permintaan from peminjaman WHERE status='Proses Cek'");
+            $query = $this->db->query("SELECT count(*) as permintaan from request WHERE status='Proses Cek'");
             return $query->result();
         }
 
@@ -34,7 +34,7 @@
         }
 
         function countKembali(){
-            $query = $this->db->query("SELECT count(*) as kembali FROM peminjaman WHERE status='Kembali'");
+            $query = $this->db->query("SELECT count(*) as kembali FROM request WHERE status='Kembali'");
             return $query->result();
         }
 

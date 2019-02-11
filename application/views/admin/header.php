@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>Admin - <?php echo $data['name'] ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -139,11 +139,9 @@
                                     <a href="<?=site_url()?>/Admin/tabel">Tabel Barang</a>
                                 </li>
                                 <li>
-                                    <a href="<?=site_url()?>/Admin/pinjam">Tabel Peminjaman</a>
+                                    <a href="<?=site_url()?>/Admin/request">Tabel Request</a>
                                 </li>
-                                <li>
-                                    <a href="<?=site_url()?>/Admin/pengembalian">Tabel Pengembalian</a>
-                                </li>
+
                             </ul>
                         </li>
                         <li>

@@ -18,9 +18,35 @@ $tanggal2=date('d-m-Y');
 	<br>
 	<div class="row">
 		<div class="col-lg-12">
+		<div class="panel panel-default">
+				<div class="panel-heading">
+					List Barang
+				</div>
+				<!-- /.panel-heading -->
+				<div class="panel-body">
+					<div class="form-group">
+						<label for="barang">Barang</label>
+						<select name="barang" id="selBarang" class="form-control" required="required">
+							<option value="">--List--</option>
+							<?php foreach($listbarang as $row){ ?>
+							<option value="<?= $row->nama_barang?>">
+								<?php echo($row->nama_barang)?>
+							</option>
+							<?php } ?>
+						</select>
+					</div>
+					<div class="alert alert-info">
+						<strong>Info!</strong> Jika di list tidak ditemukan barang yang diinginkan maka isi Form request di bawah!
+					</div>
+					<!-- /.panel-body -->
+				</div>
+				<!-- /.panel -->
+			</div>
+
+
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Pinjam Barang
+					Request Barang
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -34,25 +60,13 @@ $tanggal2=date('d-m-Y');
 						<input type="hidden" name="id_user" id="" value="<?php echo $data['id'] ?>">
 						<input type="hidden" name="status" id="" value="Proses Cek">
 						<input type="hidden" name="tgl_pinjam" id="" value="<?php echo $tanggal2 ?>">
-						<select name="barang" id="selBarang" class="form-control" required="required">
-							<option value="">--Pilih Barang--</option>
-							<?php foreach($listbarang as $row){ ?>
-							<option value="<?= $row->nama_barang?>">
-								<?php echo($row->nama_barang)?>
-							</option>
-							<?php } ?>
-						</select>
+						<input class="form-control" type="text" name="barang" id="">
 					</div>
 					<div class="form-group">
 						<label for="jumlah">Jumlah</label>
 						<input class="form-control" type="text" name="jumlah" id="">
 					</div>
-					<div class="form-group">
-						<label for="tglkembali">Tanggal Kembali</label>
-						<input class="form-control" type="text" name="tgl_kembali" id="tgl" data-theme="my-style" data-modal="true"
-						 data-large-mode="true" data-fx-mobile="true" data-format="d-m-Y">
-					</div>
-					<button type="submit" class="btn btn-primary">Pinjam</button>
+					<button type="submit" class="btn btn-primary">Request</button>
 
 					<?php echo form_close(); ?>
 					<!-- /.panel-body -->

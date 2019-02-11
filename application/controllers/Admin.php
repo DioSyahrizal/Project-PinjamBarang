@@ -78,40 +78,26 @@
             }
         }
 
-        public function pinjam()
+        public function request()
         {
-            $this->load->model('Pinjam');
-            $data['pinjam']=$this->Pinjam->getPinjamAll();
-            $this->load->view('admin/pinjam', $data);
+            $this->load->model('Request');
+            $data['pinjam']=$this->Request->getrequestAll();
+            $this->load->view('admin/request', $data);
 
         }
 
-        public function detailPinjam($id)
+        public function detailRequest($id)
         {
-            $this->load->model('Pinjam');
-            $data['pinjam']=$this->Pinjam->getPinjamByID($id);
-            $this->load->view('admin/detailpinjam', $data);
+            $this->load->model('Request');
+            $data['pinjam']=$this->Request->getrequestByID($id);
+            $this->load->view('admin/detailrequest', $data);
         }
 
         public function prosesPinjam($id)
         {
-            $this->load->model('Pinjam');
-            $this->Pinjam->prosesPinjam($id);
-            redirect('admin/index','refresh');
-
-        }
-
-        public function pengembalian(){
-            $this->load->model('Pinjam');
-            $data['pinjam']=$this->Pinjam->getProsKembali();
-            $this->load->view('admin/pengembalian', $data);
-        }
-
-        public function prosesKembali($id)
-        {
-            $this->load->model('Pinjam');
-            $this->Pinjam->prosesKembali($id);
-            redirect('admin/index','refresh');
+            $this->load->model('Request');
+            $this->Request->prosesrequest($id);
+            redirect('admin/request','refresh');
 
         }
 

@@ -96,10 +96,10 @@
 							<a href="<?=site_url()?>/User/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
 						</li>
 						<li>
-							<a href="<?=site_url()?>/User/index"><i class="fa fa-table fa-fw"></i> Peminjaman</a>
+							<a href="<?=site_url()?>/User/index"><i class="fa fa-table fa-fw"></i> Request Barang</a>
 						</li>
 						<li>
-							<a href="<?=site_url()?>/User/history"><i class="fa fa-edit fa-fw"></i> History Peminjaman</a>
+							<a href="<?=site_url()?>/User/history"><i class="fa fa-edit fa-fw"></i> History Request</a>
 						</li>
 						<li>
 							<a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

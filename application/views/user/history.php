@@ -17,25 +17,23 @@ $data['id'] = $session_data['id'];
 						<thead>
 							<tr>
 								<th></th>
-								<th>Admin Penerima</th>
-								<th>Nama Peminjam</th>
+								<th>Nama Requester</th>
 								<th>Barang</th>
 								<th>Jumlah</th>
-								<th>Tgl Pinjam</th>
-								<th>Tgl Kembali</th>
+								<th>Tgl Request</th>
+								<th>Tgl Acc</th>
 								<th>Status</th>
 							</tr>
 						</thead>
 						<tbody>
                         <?php foreach ($tabel as $key) { ?>
                             <tr>
-                                <td><?php echo $key->id_pinjam ?></td>
-                                <td><?php echo $key->admin_penerima ?></td>
-                                <td><?php echo $key->nama_peminjam ?></td>
+                                <td><?php echo $key->id_request ?></td>
+                                <td><?php echo $key->nama_requester ?></td>
                                 <td><?php echo $key->barang ?></td>
                                 <td><?php echo $key->jumlah ?></td>
-                                <td><?php echo $key->tgl_pinjam ?></td>
-                                <td><?php echo $key->tgl_kembali ?></td>
+                                <td><?php echo $key->tgl_request ?></td>
+                                <td><?php echo $key->tgl_acc ?></td>
                                 <td><?php echo $key->status ?></td>
                             </tr>
                         <?php } ?>

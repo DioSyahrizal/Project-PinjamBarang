@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Pinjam Barang</title>
+	<title>Schneider - Request Barang</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -113,7 +113,7 @@
 					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
 							<h1 class="white-text">Schneider Electric</h1>
-							<p class="white-text">Peminjaman Barang
+							<p class="white-text">Request Barang
 							</p>
 							<button class="main-btn">Learn more</button>
 						</div>

@@ -15,18 +15,18 @@
         {
             $this->load->model('barang');
 		    $tampil['listbarang']=$this->barang->tampilDataBarang();
-            $this->load->view('user/pinjam', $tampil);
+            $this->load->view('user/request', $tampil);
         }
 
         public function pinjam()
         {
-            $this->load->model('Pinjam');
+            $this->load->model('Request');
             $this->form_validation->set_rules('jumlah','Jumlah','trim|required');
             if ($this->form_validation->run() === FALSE)
             {
-                $this->load->view('user/pinjam');
+                $this->load->view('user/request');
             }else{
-                $this->Pinjam->pinjamBarang();
+                $this->Request->pinjamBarang();
                 redirect('User/dashboard','refresh');
             }
         }
@@ -36,8 +36,8 @@
             if ($this->session->userdata('logged in')) {
                 $session_data = $this->session->userdata('logged in');
                 $data['id'] = $session_data['id'];
-                $this->load->model('Pinjam');
-                $tampil['tabel'] = $this->Pinjam->getPinjamByUser($data['id']);
+                $this->load->model('Request');
+                $tampil['tabel'] = $this->Request->getPinjamByUser($data['id']);
                 $this->load->view('user/dashboard', $tampil);
             }
         }
@@ -47,8 +47,8 @@
             if ($this->session->userdata('logged in')) {
                 $session_data = $this->session->userdata('logged in');
                 $data['id'] = $session_data['id'];
-                $this->load->model('Pinjam');
-                $tampil['tabel'] = $this->Pinjam->getHistoryByID($data['id']);
+                $this->load->model('Request');
+                $tampil['tabel'] = $this->Request->getHistoryByID($data['id']);
                 $this->load->view('user/history', $tampil);
             }
         }

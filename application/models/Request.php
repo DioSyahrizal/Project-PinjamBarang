@@ -53,7 +53,7 @@
                 $action = $this->input->post('action');
                 $session_data = $this->session->userdata('logged in');
                 $data['status'] = $session_data['status'];
-                if($data['status'] = 'admin'){
+                if($data['status'] == 'admin'){
                     if($action == 'accept') {
                         $isi = array(
                             'admin1_acc'=>'1',
@@ -68,7 +68,7 @@
                         $this->db->where('id_request',$id);
                         $this->db->update('request',$isi);
                     }
-                }else if($data['status'] = 'admin2'){
+                }else if($data['status'] == 'admin2'){
                     if($action == 'accept') {
                         $isi = array(
                             'admin2_acc'=>'1',
@@ -83,7 +83,7 @@
                         $this->db->where('id_request',$id);
                         $this->db->update('request',$isi);
                     }
-                }else if($data['status'] = 'admin3'){
+                }else if($data['status'] == 'admin3'){
                     if($action == 'accept') {
                         $isi = array(
                             'admin3_acc'=>'1',

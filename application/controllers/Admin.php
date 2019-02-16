@@ -13,7 +13,7 @@
         public function index()
         {
             $session_data = $this->session->userdata('logged in');
-            if ($session_data && $session_data['status']=='admin') {
+            if ($session_data && $session_data['status']!='user') {
                 $this->load->model('barang');
                 $data['countBarang']=$this->barang->countBarang();
                 $data['countPermintaan']=$this->barang->countPermintaan();
@@ -23,6 +23,17 @@
                 redirect('Welcome','refresh');
             }
 
+        }
+
+        public function menuadmin(){
+            $session_data = $this->session->userdata('logged in');
+            if ($session_data && $session_data['status']!='user') {
+                $this->load->model('Auth');
+                $data['listadmin']=$this->Auth->getAllAdmin();
+                $this->load->view('admin/menuadmin',$data);
+            }else{
+                redirect('Welcome','refresh');
+            }
         }
 
         public function update($id)

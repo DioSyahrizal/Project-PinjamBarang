@@ -42,6 +42,12 @@
 		    return $query->result();
         }
 
+        public function getAllAdmin(){
+            $this->db->where('status !=', "User");
+            $query = $this->db->get('user');
+            return $query->result();
+        }
+
 
     }
 

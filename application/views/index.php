@@ -84,7 +84,7 @@
 					<li class="has-dropdown"><a href="#">
 							<?php echo $data['name']?></a>
 						<ul class="dropdown">
-							<?php if($data['status'] == 'admin') {?>
+							<?php if($data['status'] != 'user') {?>
 							<li><a href="<?=site_url()?>/Admin/">Admin</a></li>
 							<?php } else{ ?>
 							<li><a href="<?=site_url()?>/User/">User</a></li>

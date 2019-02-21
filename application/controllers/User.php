@@ -37,7 +37,7 @@
                 $session_data = $this->session->userdata('logged in');
                 $data['id'] = $session_data['id'];
                 $this->load->model('Request');
-                $tampil['tabel'] = $this->Request->getPinjamByUser($data['id']);
+                $tampil['tabel'] = $this->Request->getrequestByUser($data['id']);
                 $this->load->view('user/dashboard', $tampil);
             }
         }

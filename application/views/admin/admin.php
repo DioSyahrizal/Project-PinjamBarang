@@ -5,15 +5,15 @@
 	<div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Admin Page</h1>
+				<h1 class="page-header">Admin Profile</h1>
 			</div>
 			<!-- /.col-lg-12 -->
 
 			<ul class="tabs">
-				<li class="tab-link current" data-tab="tab-1">Detail</li>
-				<li class="tab-link" data-tab="tab-2">Tab Two</li>
-				<li class="tab-link" data-tab="tab-3">Tab Three</li>
-				<li class="tab-link" data-tab="tab-4">Tab Four</li>
+				<li class="tab-link current" data-tab="tab-1">Personal Information</li>
+				<li class="tab-link" data-tab="tab-2">Change Password</li>
+				<!-- <li class="tab-link" data-tab="tab-3">Tab Three</li>
+				<li class="tab-link" data-tab="tab-4">Tab Four</li> -->
 			</ul>
 
 			<div id="tab-1" class="tab-content current">
@@ -44,17 +44,33 @@
 
 			</div>
 			<div id="tab-2" class="tab-content">
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-				sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			<?php echo form_open_multipart('admin/updatePassword/'.$this->uri->segment(3)); ?>
+					<?php echo validation_errors(); ?>
+
+					<div class="form-group">
+						<label for="">Password</label>
+						<input type="password" class="form-control" id="password" name="password" >
+					</div>
+
+					<div class="form-group">
+						<label for="">Confirm Password</label>
+						<input type="password" class="form-control" id="confirm_password" name="confirm_password" >
+					</div>
+
+					<div class="form-group button">
+						<button type="submit" class="btn btn-success" id="submit">Submit</button>
+					</div>
+					<?php echo form_close(); ?>
+
 			</div>
-			<div id="tab-3" class="tab-content">
+			<!-- <div id="tab-3" class="tab-content">
 				Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
 				aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 			</div>
 			<div id="tab-4" class="tab-content">
 				Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 				exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-			</div>
+			</div> -->
 
 		</div>
 		<!-- /.row -->

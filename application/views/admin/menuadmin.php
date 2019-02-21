@@ -13,7 +13,7 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					List Request
+					Admin List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -36,7 +36,7 @@
                                 <td><?php echo $key->name ?></td>
                                 <td><?php echo $key->departement ?></td>
                                 <td><?php echo $key->status ?></td>
-								<td><a class="btn btn-warning btn-xs" href="<?=site_url()?>/Admin/detailRequest/">Update</a></td>
+								<td><a class="btn btn-warning btn-xs" href="<?=site_url()?>/Admin/update/<?php echo $key->id ?>">Update</a></td>
                             </tr>
                         <?php } ?>
 						</tbody>

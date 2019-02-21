@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Pinjam Barang</title>
+	<title>Schneider Electric Indonesia | Cikarang Plant - Tools Request Website</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -113,8 +113,8 @@
 		<nav class="navbar">
 			<div class="container-fluid">
 				<div class="navbar-brand">
-					<a href="index.html">
-						<img class="logo" src="<?=base_url()?>assets/img/logo.jpeg" alt="logo">
+					<a href="<?= site_url()?>/Welcome/">
+						<img class="logo" src="<?=base_url()?>assets/img/logo.png" alt="logo">
 					</a>
 				</div>
 				<ul class="nav navbar-nav">

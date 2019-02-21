@@ -114,7 +114,7 @@
                         <i class="fa fa-user fa-fw"></i> <?php echo $data['status'] ?> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="<?=site_url()?>/Admin/update/<?php echo $data['id'] ?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li><a href="<?=site_url()?>/Admin/update/<?php echo $data['id'] ?>"><i class="fa fa-user fa-fw"></i> Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="<?=site_url()?>/Login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -133,22 +133,22 @@
                             <a href="<?=site_url()?>/Admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-table fa-fw"></i> Tabel<span class="fa arrow"></a>
+                            <a href=""><i class="fa fa-table fa-fw"></i> Store<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?=site_url()?>/Admin/tabel">Tabel Barang</a>
+                                    <a href="<?=site_url()?>/Admin/tabel">Tools/Device List</a>
                                 </li>
                                 <li>
-                                    <a href="<?=site_url()?>/Admin/request">Tabel Request</a>
+                                    <a href="<?=site_url()?>/Admin/request">Tools/Device Request</a>
                                 </li>
 
                             </ul>
                         </li>
                         <li>
-                            <a href="<?=site_url()?>/Admin/isibarang"><i class="fa fa-edit fa-fw"></i> Tambah Barang</a>
+                            <a href="<?=site_url()?>/Admin/isibarang"><i class="fa fa-edit fa-fw"></i> Add Tools/Device</a>
                         </li>
                         <li>
-                            <a href="<?=site_url()?>/Admin/menuadmin"><i class="fa fa-user fa-fw"></i> Menu Admin</a>
+                            <a href="<?=site_url()?>/Admin/menuadmin"><i class="fa fa-user fa-fw"></i> Admin List</a>
                         </li>
                     </ul>
                 </div>

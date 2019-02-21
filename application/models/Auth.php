@@ -36,6 +36,14 @@
             $this->db->update('user',$data);
         }
 
+        public function updatePassword($id){
+            $data = array(
+                'password'=>MD5($this->input->post('password')),
+            );
+            $this->db->where('id',$id);
+            $this->db->update('user',$data);
+        }
+
         public function getUser($id){
             $this->db->where('id', $id);
             $query = $this->db->get('user');

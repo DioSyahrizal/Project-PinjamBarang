@@ -60,6 +60,23 @@
             }
         }
 
+        public function updatePassword($id)
+        {
+            $this->form_validation->set_rules('password','Password','trim|required');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+
+            $this->load->model('Auth');
+            $tampil['list_user']=$this->Auth->getUser($id);
+            if($this->form_validation->run() == FALSE) {
+                $this->load->view('admin/admin',$tampil);
+            } else {
+                //$data = array('upload_data' => $this->upload->data());
+                $this->Auth->updatePassword($id);
+                redirect('admin/index','refresh');
+
+            }
+        }
+
         public function tabel()
         {
             $this->load->model('barang');

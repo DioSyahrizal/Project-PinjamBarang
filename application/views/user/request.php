@@ -20,14 +20,14 @@ $tanggal2=date('d-m-Y');
 		<div class="col-lg-12">
 		<div class="panel panel-default">
 				<div class="panel-heading">
-					List Barang
+					Tools/Device List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 					<div class="form-group">
-						<label for="barang">Barang</label>
+						<label for="barang">Tools/Device</label>
 						<select name="barang" id="selBarang" class="form-control" required="required">
-							<option value="">--List--</option>
+							<option value="">-- List --</option>
 							<?php foreach($listbarang as $row){ ?>
 							<option value="<?= $row->nama_barang?>">
 								<?php echo($row->nama_barang)?>
@@ -36,7 +36,7 @@ $tanggal2=date('d-m-Y');
 						</select>
 					</div>
 					<div class="alert alert-info">
-						<strong>Info!</strong> Jika di list tidak ditemukan barang yang diinginkan maka isi Form request di bawah!
+						<strong>Information!</strong> If the tools/device you wanted is not on listed above, please write it down in the panel below!
 					</div>
 					<!-- /.panel-body -->
 				</div>
@@ -46,7 +46,7 @@ $tanggal2=date('d-m-Y');
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Request Barang
+					Unregistered Tools/Device Request
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -55,7 +55,7 @@ $tanggal2=date('d-m-Y');
 					<?php echo validation_errors(); ?>
 
 					<div class="form-group">
-						<label for="barang">Barang</label>
+						<label for="barang">Tools/Device</label>
 						<input type="hidden" name="nama_peminjam" id="" value="<?php echo $data['name']?>" >
 						<input type="hidden" name="id_user" id="" value="<?php echo $data['id'] ?>">
 						<input type="hidden" name="status" id="" value="Proses Cek">
@@ -63,7 +63,7 @@ $tanggal2=date('d-m-Y');
 						<input class="form-control" type="text" name="barang" id="">
 					</div>
 					<div class="form-group">
-						<label for="jumlah">Jumlah</label>
+						<label for="jumlah">Quantity</label>
 						<input class="form-control" type="text" name="jumlah" id="">
 					</div>
 					<button type="submit" class="btn btn-primary">Request</button>

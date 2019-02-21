@@ -9,7 +9,7 @@ $data['id'] = $session_data['id'];
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					History Pinjam
+					Request History
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -17,11 +17,11 @@ $data['id'] = $session_data['id'];
 						<thead>
 							<tr>
 								<th></th>
-								<th>Nama Requester</th>
-								<th>Barang</th>
-								<th>Jumlah</th>
-								<th>Tgl Request</th>
-								<th>Tgl Acc</th>
+								<th>Requester</th>
+								<th>Tools/Device</th>
+								<th>Quantity</th>
+								<th>Request Date</th>
+								<th>Approval Date</th>
 								<th>Status</th>
 							</tr>
 						</thead>

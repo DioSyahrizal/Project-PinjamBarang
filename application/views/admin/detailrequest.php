@@ -19,7 +19,7 @@ $data['status'] = $session_data['status'];
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					List Barang
+					Request List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -28,10 +28,10 @@ $data['status'] = $session_data['status'];
 							<tr>
                             <th>ID</th>
 								<th>Requester</th>
-								<th>Barang</th>
-								<th>Jumlah</th>
-								<th>Tgl Request</th>
-								<th>Tgl Acc</th>
+								<th>Tools/Device</th>
+								<th>Quantity</th>
+								<th>Request Date</th>
+								<th>Approval Date</th>
 								<th>Status</th>
 							</tr>
 						</thead>

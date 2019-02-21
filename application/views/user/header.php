@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,7 +10,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>SB User</title>
+	<title>User - <?php echo $data['name'] ?></title>
 
 	<!-- Bootstrap Core CSS -->
 	<link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -65,7 +66,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="<?=site_url()?>/Admin">SB User</a>
+				<a class="navbar-brand" href="<?=site_url()?>/Admin">User Panel</a>
 			</div>
 			<!-- /.navbar-header -->
 
@@ -77,7 +78,7 @@
 						<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
 					</a>
 					<ul class="dropdown-menu dropdown-user">
-						<li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+						<li><a href="#"><i class="fa fa-user fa-fw"></i> Profile</a>
 						</li>
 						<li class="divider"></li>
 						<li><a href="<?=site_url()?>/Login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
@@ -96,12 +97,12 @@
 							<a href="<?=site_url()?>/User/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
 						</li>
 						<li>
-							<a href="<?=site_url()?>/User/index"><i class="fa fa-table fa-fw"></i> Request Barang</a>
+							<a href="<?=site_url()?>/User/index"><i class="fa fa-table fa-fw"></i> Tools/Device Request</a>
 						</li>
 						<li>
-							<a href="<?=site_url()?>/User/history"><i class="fa fa-edit fa-fw"></i> History Request</a>
+							<a href="<?=site_url()?>/User/history"><i class="fa fa-edit fa-fw"></i> Request History</a>
 						</li>
-						<li>
+						<!--<li>
 							<a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">
 								<li>
@@ -126,11 +127,11 @@
 											<a href="#">Third Level Item</a>
 										</li>
 									</ul>
-									<!-- /.nav-third-level -->
+									<!-- /.nav-third-level
 								</li>
 							</ul>
-							<!-- /.nav-second-level -->
-						</li>
+							<!-- /.nav-second-level
+						</li>-->
 					</ul>
 				</div>
 				<!-- /.sidebar-collapse -->

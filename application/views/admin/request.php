@@ -28,7 +28,7 @@ function kode($kode){
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					List Request
+					Request List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -37,10 +37,10 @@ function kode($kode){
 							<tr>
                             <th></th>
 								<th>Requester</th>
-								<th>Barang</th>
-								<th>Jumlah</th>
-								<th>Tgl Req</th>
-								<th>Tgl Acc</th>
+								<th>Tools/Device</th>
+								<th>Quantity</th>
+								<th>Request Date</th>
+								<th>Approval Date</th>
 								<th>Adm1</th>
 								<th>Adm2</th>
 								<th>Adm3</th>

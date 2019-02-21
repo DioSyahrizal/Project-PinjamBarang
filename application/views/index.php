@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Schneider - Request Barang</title>
+	<title>Schneider Electric Indonesia | Cikarang Plant - Maintenance Division Website</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -48,7 +48,7 @@
 	<header id="home">
 		<!-- Nav -->
 		<!-- Background Image -->
-		<div class="bg-img" style="background-image: url('<?=base_url()?>assets/img/schneider.jpeg');">
+		<div class="bg-img" style="background-image: url('<?=base_url()?>assets/img/schneider.png');">
 			<div class="overlay"></div>
 		</div>
 		<nav id="nav" class="navbar nav nav-transparent">
@@ -57,8 +57,8 @@
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a href="index.html">
-							<img class="logo" src="<?=base_url()?>assets/img/logo.jpeg" alt="logo">
+						<a href="<?= site_url()?>/Welcome/">
+							<img class="logo" src="<?=base_url()?>assets/img/logo.png" alt="logo">
 						</a>
 					</div>
 					<!-- /Logo -->
@@ -93,7 +93,7 @@
 						</ul>
 					</li>
 					<?php } else{ ?>
-					<li><a href="<?=site_url()?>/Login/daftar">Daftar</a></li>
+					<li><a href="<?=site_url()?>/Login/daftar">Sign Up</a></li>
 					<li><a href="<?=site_url()?>/Login/login">Login</a></li>
 					<?php } ?>
 				</ul>
@@ -112,10 +112,10 @@
 					<!-- home content -->
 					<div class="col-md-10 col-md-offset-1">
 						<div class="home-content">
-							<h1 class="white-text">Schneider Electric</h1>
-							<p class="white-text">Request Barang
+							<h1 class="white-text">Schneider Electric Indonesia</h1>
+							<h2 class="white-text">- Cikarang Plant -</h2>
+							<p class="white-text">Maintenance Division Website
 							</p>
-							<button class="main-btn">Learn more</button>
 						</div>
 					</div>
 					<!-- /home content -->
@@ -146,9 +146,9 @@
 				<!-- service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<i class="fa fa-diamond"></i>
-						<h3>App Development</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+						<i class="fa fa-cogs"></i>
+						<h3>Tools Repair</h3>
+						<p>Serving every tools repair needed for sustaining production process.</p>
 					</div>
 				</div>
 				<!-- /service -->
@@ -157,28 +157,8 @@
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
 						<i class="fa fa-rocket"></i>
-						<h3>Graphic Design</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
-					</div>
-				</div>
-				<!-- /service -->
-
-				<!-- service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<i class="fa fa-cogs"></i>
-						<h3>Creative Idea</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
-					</div>
-				</div>
-				<!-- /service -->
-
-				<!-- service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<i class="fa fa-diamond"></i>
-						<h3>Marketing</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+						<h3>Tools Request</h3>
+						<p>Serving every tools request needed for sustaining production process.</p>
 					</div>
 				</div>
 				<!-- /service -->
@@ -187,8 +167,8 @@
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
 						<i class="fa fa-pencil"></i>
-						<h3>Awesome Support</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+						<h3>Tools Loan</h3>
+						<p>Serving every tools loan needed for sustaining production process.</p>
 					</div>
 				</div>
 				<!-- /service -->
@@ -196,9 +176,29 @@
 				<!-- service -->
 				<div class="col-md-4 col-sm-6">
 					<div class="service">
-						<i class="fa fa-flask"></i>
-						<h3>Brand Design</h3>
-						<p>Maecenas tempus tellus eget condimentum rhoncus sem quam semper libero.</p>
+						<i class="fa fa-cogs"></i>
+						<h3>Device Repair</h3>
+						<p>Serving every tools repair needed for sustaining production process.</p>
+					</div>
+				</div>
+				<!-- /service -->
+
+				<!-- service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<i class="fa fa-rocket"></i>
+						<h3>Device Request</h3>
+						<p>Serving every tools request needed for sustaining production process.</p>
+					</div>
+				</div>
+				<!-- /service -->
+
+				<!-- service -->
+				<div class="col-md-4 col-sm-6">
+					<div class="service">
+						<i class="fa fa-pencil"></i>
+						<h3>Device Loan</h3>
+						<p>Serving every tools loan needed for sustaining production process.</p>
 					</div>
 				</div>
 				<!-- /service -->
@@ -231,8 +231,8 @@
 				<div class="col-sm-3 col-xs-6">
 					<div class="number">
 						<i class="fa fa-users"></i>
-						<h3 class="white-text"><span class="counter">451</span></h3>
-						<span class="white-text">Happy clients</span>
+						<h3 class="white-text"><span class="counter">6</span></h3>
+						<span class="white-text">Team Member</span>
 					</div>
 				</div>
 				<!-- /number -->
@@ -240,9 +240,9 @@
 				<!-- number -->
 				<div class="col-sm-3 col-xs-6">
 					<div class="number">
-						<i class="fa fa-trophy"></i>
-						<h3 class="white-text"><span class="counter">12</span></h3>
-						<span class="white-text">Awards won</span>
+						<i class="fa fa-cogs"></i>
+						<h3 class="white-text"><span class="counter">2</span></h3>
+						<span class="white-text">Workshop</span>
 					</div>
 				</div>
 				<!-- /number -->
@@ -250,9 +250,9 @@
 				<!-- number -->
 				<div class="col-sm-3 col-xs-6">
 					<div class="number">
-						<i class="fa fa-coffee"></i>
-						<h3 class="white-text"><span class="counter">154</span>K</h3>
-						<span class="white-text">Cups of Coffee</span>
+						<i class="fa fa-rocket"></i>
+						<h3 class="white-text"><span class="counter">Fast</span></h3>
+						<span class="white-text">Handling</span>
 					</div>
 				</div>
 				<!-- /number -->
@@ -261,8 +261,8 @@
 				<div class="col-sm-3 col-xs-6">
 					<div class="number">
 						<i class="fa fa-file"></i>
-						<h3 class="white-text"><span class="counter">45</span></h3>
-						<span class="white-text">Projects completed</span>
+						<h3 class="white-text"><span class="counter">2</span></h3>
+						<span class="white-text">Monitoring System</span>
 					</div>
 				</div>
 				<!-- /number -->
@@ -287,7 +287,7 @@
 
 				<!-- Section header -->
 				<div class="section-header text-center">
-					<h2 class="title">Our Team</h2>
+					<h2 class="title">Maintenance Division</h2>
 				</div>
 				<!-- /Section header -->
 
@@ -297,16 +297,11 @@
 						<div class="team-img">
 							<img class="img-responsive" src="<?=base_url()?>assets/img/team1.jpg" alt="">
 							<div class="overlay">
-								<div class="team-social">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</div>
 							</div>
 						</div>
 						<div class="team-content">
-							<h3>John Doe</h3>
-							<span>Web Designer</span>
+							<h3>Haryono Mansur Harun</h3>
+							<span>Manager</span>
 						</div>
 					</div>
 				</div>
@@ -318,16 +313,11 @@
 						<div class="team-img">
 							<img class="img-responsive" src="<?=base_url()?>assets/img/team2.jpg" alt="">
 							<div class="overlay">
-								<div class="team-social">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</div>
 							</div>
 						</div>
 						<div class="team-content">
-							<h3>John Doe</h3>
-							<span>Web Designer</span>
+							<h3>Joko Dwi Admawijaya</h3>
+							<span>Supervisor</span>
 						</div>
 					</div>
 				</div>
@@ -339,16 +329,59 @@
 						<div class="team-img">
 							<img class="img-responsive" src="<?=base_url()?>assets/img/team3.jpg" alt="">
 							<div class="overlay">
-								<div class="team-social">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</div>
 							</div>
 						</div>
 						<div class="team-content">
-							<h3>John Doe</h3>
-							<span>Web Designer</span>
+							<h3>Ahmad Aminudin</h3>
+							<span>Engineer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+
+				<!-- team -->
+				<div class="col-sm-4">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="<?=base_url()?>assets/img/team3.jpg" alt="">
+							<div class="overlay">
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Toirin</h3>
+							<span>Engineer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+				
+				<!-- team -->
+				<div class="col-sm-4">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="<?=base_url()?>assets/img/team3.jpg" alt="">
+							<div class="overlay">
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Rifki Muslih</h3>
+							<span>Engineer</span>
+						</div>
+					</div>
+				</div>
+				<!-- /team -->
+
+				<!-- team -->
+				<div class="col-sm-4">
+					<div class="team">
+						<div class="team-img">
+							<img class="img-responsive" src="<?=base_url()?>assets/img/team3.jpg" alt="">
+							<div class="overlay">
+							</div>
+						</div>
+						<div class="team-content">
+							<h3>Aref Feri Pambudi</h3>
+							<span>Engineer</span>
 						</div>
 					</div>
 				</div>
@@ -374,7 +407,7 @@
 
 				<!-- Section-header -->
 				<div class="section-header text-center">
-					<h2 class="title">Get in touch</h2>
+					<h2 class="title">Contact</h2>
 				</div>
 				<!-- /Section-header -->
 
@@ -382,8 +415,9 @@
 				<div class="col-sm-4">
 					<div class="contact">
 						<i class="fa fa-phone"></i>
-						<h3>Phone</h3>
-						<p>512-421-3940</p>
+						<h3>Phone/Fax.</h3>
+						<p>(+62) (021) 897 0203-8</p>
+						<p>(+62) (021) 897 0209, 897 0085</p>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -393,7 +427,7 @@
 					<div class="contact">
 						<i class="fa fa-envelope"></i>
 						<h3>Email</h3>
-						<p>email@support.com</p>
+						<p>SESA241209@schneider-electric.com</p>
 					</div>
 				</div>
 				<!-- /contact -->
@@ -403,22 +437,11 @@
 					<div class="contact">
 						<i class="fa fa-map-marker"></i>
 						<h3>Address</h3>
-						<p>1739 Bubby Drive</p>
+						<p>Pabrik Cikarang | Engineering & Manufacturing</p> 
+						<p>East Jakarta Industrial Park (EJIP), Plot 4B No.1-2, Lemah Abang, Bekasi 17550, Jawa Barat</p>
 					</div>
 				</div>
 				<!-- /contact -->
-
-				<!-- contact form -->
-				<div class="col-md-8 col-md-offset-2">
-					<form class="contact-form">
-						<input type="text" class="input" placeholder="Name">
-						<input type="email" class="input" placeholder="Email">
-						<input type="text" class="input" placeholder="Subject">
-						<textarea class="input" placeholder="Message"></textarea>
-						<button class="main-btn">Send message</button>
-					</form>
-				</div>
-				<!-- /contact form -->
 
 			</div>
 			<!-- /Row -->
@@ -443,24 +466,24 @@
 
 					<!-- footer logo -->
 					<div class="footer-logo">
-						<a href="index.html"><img src="<?=base_url()?>assets/img/logo-alt.png" alt="logo"></a>
+						<a href="<?= site_url()?>/Welcome/"><img src="<?=base_url()?>assets/img/logo.png" alt="logo"></a>
 					</div>
 					<!-- /footer logo -->
 
 					<!-- footer follow -->
 					<ul class="footer-follow">
-						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-						<li><a href="#"><i class="fa fa-instagram"></i></a></li>
-						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-						<li><a href="#"><i class="fa fa-youtube"></i></a></li>
+						<li><a href="http://facebook.com/SchneiderElectric"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="https://twitter.com/SchneiderElec"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="https://plus.google.com/+schneiderelectric/posts"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="https://instagram.com/schneiderelectric"><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://www.linkedin.com/company/schneider-electric"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="https://www.youtube.com/user/SchneiderCorporate"><i class="fa fa-youtube"></i></a></li>
 					</ul>
 					<!-- /footer follow -->
 
 					<!-- footer copyright -->
 					<div class="footer-copyright">
-						<p>Copyright © 2017. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+						<p>Copyright © 2019. All Rights Reserved. Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
 					</div>
 					<!-- /footer copyright -->
 

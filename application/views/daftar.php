@@ -3,7 +3,7 @@
 <div class="login-form">
 	<?php echo form_open_multipart('login/create');?>
 	<?php echo validation_errors(); ?>
-	<h2 class="text-center">Daftar</h2>
+	<h2 class="text-center">Sign Up</h2>
 	<div class="form-group title">
 		<label for="username">Username</label>
 		<input type="text" class="form-control" name="username" required="required">

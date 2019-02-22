@@ -19,7 +19,7 @@
 				</div>
                 <div class="form-group">
                     <label for="">Classification</label>
-                    <input type="text" name="clasification" class="form-control" id="clasification" placeholder="Classificationification">
+                    <input type="text" name="clasification" class="form-control" id="clasification" placeholder="Classification">
                 </div>
 
 				<button type="submit" class="btn btn-primary">Submit</button>

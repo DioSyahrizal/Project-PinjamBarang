@@ -9,6 +9,13 @@
 		    return $query->result();
         }
 
+        function getBarang($id)
+        {
+            $this->db->where('code',$id);
+            $query = $this->db->get('barang');
+		    return $query->result();
+        }
+
         function insertBarang()
         {
             $data = array(
@@ -17,6 +24,23 @@
                 'clasification'=>$this->input->post('clasification')
             );
             $this->db->insert('barang', $data);
+        }
+
+        function updateBarang($id)
+        {
+            $data = array(
+                'nama_barang'=>$this->input->post('nama_barang'),
+                'store_location'=>$this->input->post('store_location'),
+                'clasification'=>$this->input->post('clasification')
+            );
+            $this->db->where('code',$id);
+            $this->db->update('barang',$data);
+        }
+
+        function deleteBarang($id){
+            $this->db->where('code', $id);
+            $this->db->delete('barang');
+
         }
 
         function countBarang(){

@@ -1,6 +1,16 @@
 <?php $this->load->view('user/header');
 $session_data = $this->session->userdata('logged in');
 $data['id'] = $session_data['id'];
+
+function kode($kode){
+	if ($kode == '0') {
+		return 'assets/icon/circle-outline.png';
+	}else if($kode == '1'){
+		return 'assets/icon/checked.png';
+	}else{
+		return 'assets/icon/error.png';
+	}
+}
 ?>
 
 <div id="page-wrapper">
@@ -14,30 +24,30 @@ $data['id'] = $session_data['id'];
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-						<thead>
+					<thead>
 							<tr>
-								<th></th>
-								<th>Admin Penerima</th>
-								<th>Nama Peminjam</th>
-								<th>Barang</th>
-								<th>Jumlah</th>
-								<th>Tgl Pinjam</th>
-								<th>Tgl Kembali</th>
-								<th>Status</th>
+                            <th></th>
+								<th>Tools/Device</th>
+								<th>Quantity</th>
+								<th>Request Date</th>
+								<th>Approval Date</th>
+								<th>Adm1</th>
+								<th>Adm2</th>
+								<th>Adm3</th>
 							</tr>
 						</thead>
 						<tbody>
                         <?php foreach ($tabel as $key) { ?>
                             <tr>
-                                <td><?php echo $key->id_pinjam ?></td>
-                                <td><?php echo $key->admin_penerima ?></td>
-                                <td><?php echo $key->nama_peminjam ?></td>
+                                <td><?php echo $key->id_request ?></td>
                                 <td><?php echo $key->barang ?></td>
                                 <td><?php echo $key->jumlah ?></td>
-                                <td><?php echo $key->tgl_pinjam ?></td>
-                                <td><?php echo $key->tgl_kembali ?></td>
-                                <td><?php echo $key->status ?></td>
-                            </tr>
+                                <td><?php echo $key->tgl_request ?></td>
+                                <td><?php echo $key->tgl_acc ?></td>
+								<td><img src="<?=base_url(kode($key->admin1_acc))?>" width="30px" height="30px"></td>
+								<td><img src="<?=base_url(kode($key->admin2_acc))?>" width="30px" height="30px"></td>
+								<td><img src="<?=base_url(kode($key->admin3_acc))?>" width="30px" height="30px"></td>
+								</tr>
                         <?php } ?>
 						</tbody>
 					</table>

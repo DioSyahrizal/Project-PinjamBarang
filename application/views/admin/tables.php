@@ -22,6 +22,7 @@
                                         <th>Tools/Device Name</th>
                                         <th>Store Location</th>
                                         <th>Classification</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -88,6 +89,14 @@
 					"targets":3,
 					"data":"clasification",
 				},
+                {
+                    "targets":4,
+                    "data":null,
+					"searchable":false,
+					"render":function(data,type,full,meta){
+						return '<a class="btn btn-warning btn-xs" href="<?=site_url()?>/Admin/updateBarang/'+data["code"]+'">Edit</a>  <a class="btn btn-danger btn-xs" href="<?=site_url()?>/Admin/deleteBarang/'+data["code"]+'">Delete</a>';
+					}
+                },
 			]
         });
     });

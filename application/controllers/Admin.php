@@ -73,8 +73,29 @@
                 //$data = array('upload_data' => $this->upload->data());
                 $this->Auth->updatePassword($id);
                 redirect('admin/index','refresh');
-
             }
+        }
+
+        public function updateBarang($id)
+        {
+            $this->form_validation->set_rules('nama_barang','Tools','trim|required');
+
+            $this->load->model('Barang');
+            $tampil['barang']=$this->Barang->getBarang($id);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('admin/updateBarang', $tampil);
+            } else {
+                $this->Barang->updateBarang($id);
+                redirect('admin/tabel','refresh');
+            }
+        }
+
+        public function deleteBarang($id)
+        {
+            $this->load->model('Barang');
+            $this->Barang->deleteBarang($id);
+            redirect('admin/tabel','refresh');
+
         }
 
         public function tabel()

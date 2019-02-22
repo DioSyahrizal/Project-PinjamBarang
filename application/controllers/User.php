@@ -26,7 +26,7 @@
             {
                 $this->load->view('user/request');
             }else{
-                $this->Request->pinjamBarang();
+                $this->Request->requestBarang();
                 redirect('User/dashboard','refresh');
             }
         }

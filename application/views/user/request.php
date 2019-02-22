@@ -51,15 +51,21 @@ $tanggal2=date('d-m-Y');
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 
+					<div class="alert alert-info">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Tips</strong> if you want to request several items, make sure to separate item with commas and spacebar<br>
+						<i>Example: Item, Item2, Item3</i>
+					</div>
+
 					<?php echo form_open_multipart('User/pinjam');?>
 					<?php echo validation_errors(); ?>
 
 					<div class="form-group">
 						<label for="barang">Tools/Device</label>
-						<input type="hidden" name="nama_peminjam" id="" value="<?php echo $data['name']?>" >
+						<input type="hidden" name="nama_requester" id="" value="<?php echo $data['name']?>" >
 						<input type="hidden" name="id_user" id="" value="<?php echo $data['id'] ?>">
 						<input type="hidden" name="status" id="" value="Proses Cek">
-						<input type="hidden" name="tgl_pinjam" id="" value="<?php echo $tanggal2 ?>">
+						<input type="hidden" name="tgl_request" id="" value="<?php echo $tanggal2 ?>">
 						<input class="form-control" type="text" name="barang" id="">
 					</div>
 					<div class="form-group">

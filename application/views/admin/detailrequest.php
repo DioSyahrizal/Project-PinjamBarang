@@ -52,28 +52,39 @@ $data['status'] = $session_data['status'];
 
                     <?php echo form_open_multipart('admin/prosespinjam/'.$this->uri->segment(3)); ?>
 					<?php echo validation_errors(); ?>
+					<input type="hidden" name="nama_barang" id="nama_barang" value="<?php echo $pinjam[0]->barang ?>">
+
 					<?php
-						if($data['status'] == 'admin'){
+						if($pinjam[0]->admin1_acc == 1 && $pinjam[0]->admin2_acc == 1 && $pinjam[0]->admin3_acc == 1){
+							if($pinjam[0]->status !== 'Acc'){?>
+							<button type="submit" name="action" value="acc" class="btn btn-primary btn-lg btn-block">Acc Barang</button>
+						<?php }else{ ?>
+							<div class="alert alert-info">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>Sudah ter Acc</strong>
+							</div>
+						<?php }
+						}else if($data['status'] == 'admin'){
 							if($pinjam[0]->admin1_acc == '2'){
 								return 0;
 							}else{ ?>
 								<button type="submit" name="action" value="accept" class="btn btn-success btn-lg btn-block"> Accept </button>
                     			<button type="submit" name="action" value="denied" class="btn btn-danger btn-lg btn-block"> Denied </button>
-							<?php }
+						<?php }
 						}else if($data['status'] == 'admin2'){
 							if($pinjam[0]->admin2_acc == '2'){
 								return 0;
 							}else{ ?>
 								<button type="submit" name="action" value="accept" class="btn btn-success btn-lg btn-block"> Accept </button>
                     			<button type="submit" name="action" value="denied" class="btn btn-danger btn-lg btn-block"> Denied </button>
-							<?php }
+						<?php }
 						}else if($data['status'] == 'admin3'){
 							if($pinjam[0]->admin3_acc == '2'){
 								return 0;
 							}else{ ?>
 								<button type="submit" name="action" value="accept" class="btn btn-success btn-lg btn-block"> Accept </button>
                     			<button type="submit" name="action" value="denied" class="btn btn-danger btn-lg btn-block"> Denied </button>
-							<?php }
+						<?php }
 						}
 					?>
 					<?php echo form_close(); ?>

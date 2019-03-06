@@ -16,19 +16,13 @@
 	<title>User - <?php echo $data['name'] ?></title>
 
 	<!-- Bootstrap Core CSS -->
-	<link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
 	<!-- custom css -->
 	<link href="<?=base_url()?>assets/vendor/datedropper/datedropper.css" rel="stylesheet" type="text/css" />
 	<link href="<?=base_url()?>assets/css/my-style.css" rel="stylesheet" type="text/css" />
-
-	<!-- MetisMenu CSS -->
-	<link href="<?=base_url()?>assets/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
 	<!-- Custom CSS -->
 	<link href="<?=base_url()?>assets/dist/css/sb-admin-2.css" rel="stylesheet">
-
-	<!-- Morris Charts CSS -->
-	<link href="<?=base_url()?>assets/vendor/morrisjs/morris.css" rel="stylesheet">
 
 	<!-- Custom Fonts -->
 	<link href="<?=base_url()?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

@@ -3,6 +3,7 @@ $session_data = $this->session->userdata('logged in');
 $data['id'] = $session_data['id'];
 $data['name'] = $session_data['name'];
 $data['status'] = $session_data['status'];
+$data['departement'] = $session_data['departement'];
 date_default_timezone_set('Asia/Jakarta');
 $tanggal2=date('d-m-Y');
 
@@ -17,73 +18,76 @@ $tanggal2=date('d-m-Y');
 	<!-- /.row -->
 	<br>
 	<div class="row">
-		<div class="col-lg-12">
-		<div class="panel panel-default">
+		<div class="col-lg-6">
+			<div class="panel panel-default">
 				<div class="panel-heading">
-					Tools/Device List
+					Request
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 					<div class="form-group">
-						<label for="barang">Tools/Device</label>
-						<select name="barang" id="selBarang" class="form-control" required="required">
-							<option value="">-- List --</option>
-							<?php foreach($listbarang as $row){ ?>
-							<option value="<?= $row->nama_barang?>">
-								<?php echo($row->nama_barang)?>
-							</option>
-							<?php } ?>
-						</select>
+						<label>Title</label>
+						<input type="text" name="barang" class="form-control" id="barang" placeholder="Barang">
 					</div>
-					<div class="alert alert-info">
-						<strong>Information!</strong> If the tools/device you wanted is not on listed above, please write it down in the panel below!
+					<div class="form-group">
+						<label for="">ID Barang</label>
+						<input type="text" name="id" id="id" class="form-control" disabled>
 					</div>
+					<div class="form-group">
+						<label for="">Nama Barang</label>
+						<input type="text" name="nama_barang" id="nama_barang" class="form-control" disabled>
+					</div>
+					<div class="form-group">
+						<label for="">Store_Location</label>
+						<input type="text" name="store_location" id="location" class="form-control" disabled>
+					</div>
+					<div class="form-group">
+						<label for="">Clasification</label>
+						<input type="text" name="clasification" id="" class="form-control" disabled>
+						<input type="hidden" name="date" id="date" value="<?php echo $tanggal2?>">
+						<input type="hidden" name="requester" id="requester" value="<?php echo $data['name']  ?>">
+						<input type="hidden" name="departement" id="departement" value="<?php echo $data['departement']  ?>">
+
+					</div>
+					<div class="form-group">
+						<label for="">Quantity</label>
+						<input type="text" name="quantity" id="quantity" class="form-control">
+					</div>
+
+					<button type="button" id="btn" name="add_cart" class="btn btn-success add_cart"
+                                data-barangid=""
+								data-barangnama=""
+                                data-location=""
+								data-requester="<?php echo $data['name'] ?>"
+								data-date="<?php echo $tanggal2 ?>"
+								data-departement="<?php echo $data['departement'] ?>">Add to Cart</button>
 					<!-- /.panel-body -->
 				</div>
 				<!-- /.panel -->
 			</div>
 
 
+			<!-- /.panel -->
+		</div>
+		<!-- /.col-lg-12 -->
+		<div class="col-lg-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Unregistered Tools/Device Request
+					Cart
 				</div>
 				<!-- /.panel-heading -->
-				<div class="panel-body">
-
-					<div class="alert alert-info">
-						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-						<strong>Tips</strong> if you want to request several items, make sure to separate item with commas and spacebar<br>
-						<i>Example: Item, Item2, Item3</i>
-					</div>
-
-					<?php echo form_open_multipart('User/pinjam');?>
-					<?php echo validation_errors(); ?>
-
-					<div class="form-group">
-						<label for="barang">Tools/Device</label>
-						<input type="hidden" name="nama_requester" id="" value="<?php echo $data['name']?>" >
-						<input type="hidden" name="id_user" id="" value="<?php echo $data['id'] ?>">
-						<input type="hidden" name="status" id="" value="Proses Cek">
-						<input type="hidden" name="tgl_request" id="" value="<?php echo $tanggal2 ?>">
-						<input class="form-control" type="text" name="barang" id="">
-					</div>
-					<div class="form-group">
-						<label for="jumlah">Quantity</label>
-						<input class="form-control" type="text" name="jumlah" id="">
-					</div>
-					<button type="submit" class="btn btn-primary">Request</button>
-
-					<?php echo form_close(); ?>
+				<div class="panel-body" id="cart_details">
+					Empty
 					<!-- /.panel-body -->
 				</div>
 				<!-- /.panel -->
 			</div>
 			<!-- /.col-lg-12 -->
 		</div>
-		<!-- /.row -->
 	</div>
-	<!-- /#page-wrapper -->
+	<!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
 
 </div>
 

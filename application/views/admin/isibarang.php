@@ -12,6 +12,7 @@
 				<div class="form-group">
 					<label for="">Tools/Device Name: </label>
                     <input type="text" name="nama_barang" class="form-control" id="nama_barang" placeholder="Tools/Device Name">
+					<input type="text" name="nama_barang2" class="form-control" id="nama_barang2" placeholder="Tools/Device Name">
 				</div>
                 <div class="form-group">
 					<label for="" >Store Location</label>

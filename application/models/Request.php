@@ -27,9 +27,9 @@
             return $query->result();
         }
 
-        function getrequestByUser($id)
+        function getrequestByUser($name)
         {
-            $this->db->where('id_user',$id);
+            $this->db->where('requester',$name);
             $query = $this->db->get('request');
             return $query->result();
         }
@@ -90,8 +90,8 @@
                     }else {
                         $insertBarang = array(
                         'nama_barang' => $barang
-                    );
-                    $this->db->insert('barang',$insertBarang);
+                        );
+                        $this->db->insert('barang',$insertBarang);
                     }
                 }
 

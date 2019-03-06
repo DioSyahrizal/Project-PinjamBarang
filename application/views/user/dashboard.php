@@ -2,15 +2,6 @@
 $session_data = $this->session->userdata('logged in');
 $data['id'] = $session_data['id'];
 
-function kode($kode){
-	if ($kode == '0') {
-		return 'assets/icon/circle-outline.png';
-	}else if($kode == '1'){
-		return 'assets/icon/checked.png';
-	}else{
-		return 'assets/icon/error.png';
-	}
-}
 ?>
 
 <div id="page-wrapper">
@@ -26,14 +17,11 @@ function kode($kode){
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 					<thead>
 							<tr>
-                            <th></th>
-								<th>Tools/Device</th>
-								<th>Quantity</th>
+								<th>ID</th>
 								<th>Request Date</th>
-								<th>Approval Date</th>
-								<th>Adm1</th>
-								<th>Adm2</th>
-								<th>Adm3</th>
+								<th>Acc Date</th>
+								<th>Requester</th>
+								<th>Departement</th>
 							</tr>
 						</thead>
 						<tbody>

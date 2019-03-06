@@ -5,7 +5,7 @@
     class Auth extends CI_Model {
 
         public function login($username,$password){
-            $this->db->select('id,username,password,name,status');
+            $this->db->select('id,username,password,name,status,departement');
             $this->db->from('user');
             $this->db->where('username', $username);
             $this->db->where('password', MD5($password));
@@ -22,7 +22,8 @@
                             'password'=>MD5($this->input->post('password')),
                             'name'=>$this->input->post('name'),
                             'departement'=>$this->input->post('departement'),
-                            'status'=>$this->input->post('status')
+                            'status'=>$this->input->post('status'),
+                            'jabatan'=>$this->input->post('jabatan')
                             );
             $this->db->insert('user',$object);
         }

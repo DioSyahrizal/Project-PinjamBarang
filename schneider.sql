@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 12, 2019 at 10:40 PM
+-- Generation Time: Mar 06, 2019 at 04:54 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
--- PHP Version: 7.2.10-0ubuntu0.18.04.1
+-- PHP Version: 7.2.15-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -47,31 +47,30 @@ INSERT INTO `barang` (`code`, `nama_barang`, `store_location`, `clasification`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detail_request`
+--
+
+CREATE TABLE `detail_request` (
+  `id` int(11) NOT NULL,
+  `id_request` int(11) NOT NULL,
+  `barang` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `store_location` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `request`
 --
 
 CREATE TABLE `request` (
-  `id_request` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `nama_requester` varchar(100) NOT NULL,
-  `barang` varchar(100) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `tgl_request` varchar(20) NOT NULL,
-  `tgl_acc` varchar(20) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `admin1_acc` enum('0','1','2') NOT NULL,
-  `admin2_acc` enum('0','1','2') NOT NULL,
-  `admin3_acc` enum('0','1','2') NOT NULL
+  `id` int(11) NOT NULL,
+  `tanggal_request` varchar(50) NOT NULL,
+  `tanggal_acc` varchar(50) NOT NULL,
+  `requester` varchar(100) NOT NULL,
+  `departement` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `request`
---
-
-INSERT INTO `request` (`id_request`, `id_user`, `nama_requester`, `barang`, `jumlah`, `tgl_request`, `tgl_acc`, `status`, `admin1_acc`, `admin2_acc`, `admin3_acc`) VALUES
-(1, 2, 'Lala', 'Combination spanner 5.5 mm', 2, '28-01-2019', '', 'Proses Cek', '1', '1', '0'),
-(2, 3, 'Mirai Suenaga', 'Combination spanner 9 mm', 1, '28-01-2019', '', 'Proses Cek', '0', '0', '2'),
-(4, 3, 'Mirai Suenaga', 'Combination spanner 7 mm', 2, '28-01-2019', '', 'Proses Cek', '0', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -85,19 +84,20 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
   `departement` varchar(50) NOT NULL,
-  `status` enum('admin','admin2','admin3','user') NOT NULL
+  `status` enum('admin','admin2','admin3','user') NOT NULL,
+  `jabatan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `name`, `departement`, `status`) VALUES
-(1, 'dio', '27b205035c328b16d8c8329c4b41e87e', 'Muhammad Dio Syahrizal', 'IT', 'admin'),
-(2, 'lala', '2e3817293fc275dbee74bd71ce6eb056', 'Lala', 'Engineering', 'user'),
-(3, 'mirai', 'c631dac97d3f6112e92c51af79b3ed4a', 'Mirai Suenaga', 'Electrical', 'user'),
-(4, 'admin2', 'c84258e9c39059a89ab77d846ddab909', 'Admin2', 'Administrator', 'admin2'),
-(5, 'admin3', '32cacb2f994f6b42183a1300d9a3e8d6', 'Admin3', 'Administrator', 'admin3');
+INSERT INTO `user` (`id`, `username`, `password`, `name`, `departement`, `status`, `jabatan`) VALUES
+(1, 'dio', '27b205035c328b16d8c8329c4b41e87e', 'Muhammad Dio Syahrizal', 'Administrator', 'admin', ''),
+(2, 'lala', '2e3817293fc275dbee74bd71ce6eb056', 'Lala', 'Engineering', 'user', ''),
+(3, 'mirai', 'c631dac97d3f6112e92c51af79b3ed4a', 'Mirai Suenaga', 'Electrical', 'user', ''),
+(6, 'ash', '2852f697a9f8581725c6fc6a5472a2e5', 'Ash', 'ACB MCCB', 'user', 'user'),
+(7, 'loco', '4c193eb3ec2ce5f02b29eba38621bea1', 'Loco', 'ACB MCCB', 'admin', 'Supervisor');
 
 --
 -- Indexes for dumped tables
@@ -110,10 +110,16 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`code`);
 
 --
+-- Indexes for table `detail_request`
+--
+ALTER TABLE `detail_request`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `request`
 --
 ALTER TABLE `request`
-  ADD PRIMARY KEY (`id_request`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `user`
@@ -131,15 +137,20 @@ ALTER TABLE `user`
 ALTER TABLE `barang`
   MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
+-- AUTO_INCREMENT for table `detail_request`
+--
+ALTER TABLE `detail_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `id_request` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -19,7 +19,7 @@
 
         }
 
-        public function create()
+        public function createUser()
         {
             $this->form_validation->set_rules('username','Username','trim|required');
             $this->form_validation->set_rules('password','Password','trim|required');
@@ -63,7 +63,8 @@
                         'id'=>$row->id,
                         'username'=>$row->username,
                         'name'=>$row->name,
-                        'status'=>$row->status
+                        'status'=>$row->status,
+                        'departement'=>$row->departement
                     );
                     $this->session->set_userdata('logged in', $sess_array );
                 }

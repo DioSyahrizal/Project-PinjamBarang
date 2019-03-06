@@ -35,9 +35,9 @@
         {
             if ($this->session->userdata('logged in')) {
                 $session_data = $this->session->userdata('logged in');
-                $data['id'] = $session_data['id'];
+                $data['name'] = $session_data['name'];
                 $this->load->model('Request');
-                $tampil['tabel'] = $this->Request->getrequestByUser($data['id']);
+                $tampil['tabel'] = $this->Request->getrequestByUser($data['name']);
                 $this->load->view('user/dashboard', $tampil);
             }
         }
@@ -62,6 +62,25 @@
                 ->where('id_user',$id);
                 echo $this->datatables->generate();
         }
+
+        function get_autocomplete(){
+            $this->load->model('Barang');
+            if (isset($_GET['term'])) {
+                  $result = $this->Barang->search_Barang($_GET['term']);
+                   if (count($result) > 0) {
+                foreach ($result as $row)
+                     $arr_result[] = array(
+                        'id'	            => $row->code,
+                        'nama_barang'	    => $row->nama_barang,
+                        'store_location'	=> $row->store_location,
+                        'clasification'	    => $row->clasification,
+                        'value'             => $row->nama_barang
+                    );
+                     echo json_encode($arr_result);
+                   }
+            }
+        }
+
     }
 
     /* End of file User.php */

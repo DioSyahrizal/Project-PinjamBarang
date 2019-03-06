@@ -17,5 +17,5 @@
 	<p class="text-center"><a href="<?= site_url()?>/Login/daftar">Create an Account</a></p>
 
 </div>
-
+<?php echo form_close(); ?>
 <?php $this->load->view('footer'); ?>

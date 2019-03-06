@@ -9,6 +9,13 @@
 		    return $query->result();
         }
 
+        function search_Barang($barang){
+            $this->db->like('nama_barang', $barang , 'both');
+            $this->db->order_by('nama_barang', 'ASC');
+            $this->db->limit(10);
+            return $this->db->get('barang')->result();
+        }
+
         function getBarang($id)
         {
             $this->db->where('code',$id);
@@ -18,8 +25,10 @@
 
         function insertBarang()
         {
+            $barang = $this->input->post('nama_barang');
+            $barang = $barang. ", " .$this->input->post('nama_barang2');
             $data = array(
-                'nama_barang'=>$this->input->post('nama_barang'),
+                'nama_barang'=>$barang,
                 'store_location'=>$this->input->post('store_location'),
                 'clasification'=>$this->input->post('clasification')
             );

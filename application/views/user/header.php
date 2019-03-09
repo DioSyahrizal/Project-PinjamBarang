@@ -1,6 +1,7 @@
 <?php
   $session_data = $this->session->userdata('logged in');
 	$data['name'] = $session_data['name'];
+	$data['jabatan'] = $session_data['jabatan'];
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -91,13 +92,32 @@
 				<div class="sidebar-nav navbar-collapse">
 					<ul class="nav" id="side-menu">
 						<li>
-							<a href="<?=site_url()?>/User/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+							<a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard <span class="fa arrow"></a>
+							<ul class="nav nav-second-level">
+								<li>
+									<a href="<?=site_url()?>/User/dashboard_request"><i class="fa fa-table fa-fw"></i> Request </a>
+								</li>
+								<li>
+									<a href="<?=site_url()?>/User/dashboard_replace"><i class="fa fa-table fa-fw"></i> Replace </a>
+								</li>
+							</ul>
 						</li>
 						<li>
-							<a href="<?=site_url()?>/User/index"><i class="fa fa-table fa-fw"></i> Tools/Device Request</a>
+							<a href=""><i class="fa fa-table fa-fw"></i> Action<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+									<a href="<?=site_url()?>/User/index"><i class="fa fa-table fa-fw"></i> Tools/Device Request</a>
+                                </li>
+                                <li>
+                                    <a href="<?=site_url()?>/User/replace"><i class="fa fa-table fa-fw"></i> Tools/Device Replace</a>
+                                </li>
+                            </ul>
+                        </li>
+						<li>
+							<a href="<?=site_url()?>/User/history_request"><i class="fa fa-edit fa-fw"></i> Request History</a>
 						</li>
 						<li>
-							<a href="<?=site_url()?>/User/history"><i class="fa fa-edit fa-fw"></i> Request History</a>
+							<a href="<?=site_url()?>/User/history_replace"><i class="fa fa-edit fa-fw"></i> Replace History</a>
 						</li>
 						<!--<li>
 							<a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

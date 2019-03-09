@@ -84,8 +84,10 @@
 					<li class="has-dropdown"><a href="#">
 							<?php echo $data['name']?></a>
 						<ul class="dropdown">
-							<?php if($data['status'] != 'user') {?>
+							<?php if($data['status'] == 'admin') {?>
 							<li><a href="<?=site_url()?>/Admin/">Admin</a></li>
+							<?php }else if($data['status'] == 'superadmin'){ ?>
+							<li><a href="<?=site_url()?>/Superadmin/">Super Admin</a></li>
 							<?php } else{ ?>
 							<li><a href="<?=site_url()?>/User/">User</a></li>
 							<?php } ?>
@@ -354,7 +356,7 @@
 					</div>
 				</div>
 				<!-- /team -->
-				
+
 				<!-- team -->
 				<div class="col-sm-4">
 					<div class="team">
@@ -437,7 +439,7 @@
 					<div class="contact">
 						<i class="fa fa-map-marker"></i>
 						<h3>Address</h3>
-						<p>Pabrik Cikarang | Engineering & Manufacturing</p> 
+						<p>Pabrik Cikarang | Engineering & Manufacturing</p>
 						<p>East Jakarta Industrial Park (EJIP), Plot 4B No.1-2, Lemah Abang, Bekasi 17550, Jawa Barat</p>
 					</div>
 				</div>

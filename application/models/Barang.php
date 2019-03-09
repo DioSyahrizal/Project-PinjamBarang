@@ -26,7 +26,6 @@
         function insertBarang()
         {
             $barang = $this->input->post('nama_barang');
-            $barang = $barang. ", " .$this->input->post('nama_barang2');
             $data = array(
                 'nama_barang'=>$barang,
                 'store_location'=>$this->input->post('store_location'),

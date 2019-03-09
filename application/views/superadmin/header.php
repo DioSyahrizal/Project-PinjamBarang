@@ -26,7 +26,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin - <?php echo $data['name'] ?></title>
+    <title>Super Admin - <?php echo $data['name'] ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -112,7 +112,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=site_url()?>/Admin">Admin Panel</a>
+                <a class="navbar-brand" href="<?=site_url()?>/Admin">Super Admin Panel</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -140,29 +140,23 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?=site_url()?>/Admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?=site_url()?>/Superadmin/index"><i class="fa fa-user fa-fw"></i> Admin List</a>
+                        </li>
+                        <li>
+                            <a href="<?=site_url()?>/Superadmin/menuUser"><i class="fa fa-user fa-fw"></i> User List</a>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-table fa-fw"></i> Store<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="<?=site_url()?>/Admin/tabel">Tools/Device List</a>
+                                    <a href="<?=site_url()?>/Superadmin/request">Tools/Device Request</a>
                                 </li>
                                 <li>
-                                    <a href="<?=site_url()?>/Admin/request">Tools/Device Request</a>
+                                    <a href="<?=site_url()?>/Superadmin/replace">Tools/Device Replace</a>
                                 </li>
-                                <?php if($jabatan == 'manager'){
-                                    return 0;
-                                    }else { ?>
-                                <li>
-                                    <a href="<?=site_url()?>/Admin/replace">Tools/Device Replace</a>
-                                </li>
-                                <?php } ?>
                             </ul>
                         </li>
-                        <li>
-                            <a href="<?=site_url()?>/Admin/isibarang"><i class="fa fa-edit fa-fw"></i> Add Tools/Device</a>
-                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

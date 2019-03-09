@@ -19,7 +19,7 @@ $data['status'] = $session_data['status'];
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Detail Request List
+					Detail Replace List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -27,7 +27,7 @@ $data['status'] = $session_data['status'];
 					<thead>
 							<tr>
 								<th>ID</th>
-								<th>ID Request</th>
+								<th>ID Replace</th>
 								<th>Barang</th>
 								<th>Qty</th>
 								<th>Store Location</th>
@@ -37,7 +37,7 @@ $data['status'] = $session_data['status'];
                         <?php foreach ($detail as $key) { ?>
                             <tr>
                                 <td><?php echo $key->id ?></td>
-                                <td><?php echo $key->id_request ?></td>
+                                <td><?php echo $key->id_replace ?></td>
                                 <td><?php echo $key->barang ?></td>
                                 <td><?php echo $key->qty ?></td>
                                 <td><?php echo $key->store_location ?></td>

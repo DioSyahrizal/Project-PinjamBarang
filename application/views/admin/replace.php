@@ -26,7 +26,7 @@ $jabatan = '';
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Request List
+					Replace List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -34,8 +34,8 @@ $jabatan = '';
 					<thead>
 							<tr>
 								<th>ID</th>
-								<th>Request Date</th>
-								<th>Requester</th>
+								<th>Replace Date</th>
+								<th>Replacer</th>
 								<th>Departement</th>
 								<th>Upvote</th>
 								<th>Downvote</th>
@@ -48,22 +48,22 @@ $jabatan = '';
                         <?php foreach ($request as $key) { ?>
                             <tr>
                                 <td><?php echo $key->id ?></td>
-                                <td><?php echo $key->tanggal_request ?></td>
-                                <td><?php echo $key->requester ?></td>
+                                <td><?php echo $key->tanggal_replace ?></td>
+                                <td><?php echo $key->replacer ?></td>
                                 <td><?php echo $key->departement ?></td>
                                 <td><?php echo $key->upvote ?></td>
 								<td><?php echo $key->downvote ?></td>
 								<td><?php echo $key->status ?></td>
-								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Admin/detailRequest/<?php echo $key->id ?>">Detail</a>
-								<?php if($key->upvote == 3){ ?>
-									<td><a href="<?=site_url()?>/Admin/accRequest/<?php echo $key->id ?>"><button class="btn btn-success btn-xs">Acc</button></a></td>
+								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Admin/detailReplace/<?php echo $key->id ?>">Detail</a>
+								<?php if($key->upvote == 2){ ?>
+									<td><a href="<?=site_url()?>/Admin/accReplace/<?php echo $key->id ?>"><button class="btn btn-success btn-xs">Acc</button></a></td>
 								<?php }else if($key->downvote >= 1){ ?>
-									<td><a href="<?=site_url()?>/Admin/declineRequest/<?php echo $key->id ?>"><button class="btn btn-danger btn-xs">Decline</button></a></td>
+									<td><a href="<?=site_url()?>/Admin/declineReplace/<?php echo $key->id ?>"><button class="btn btn-danger btn-xs">Decline</button></a></td>
 								<?php }else{ ?>
 									<?php if($request[0]->$jabatan == 1){ ?>
 											<td>Sudah vote</td>
 									<?php }else{?>
-										<?php echo form_open_multipart('Admin/actionRequest');?>
+										<?php echo form_open_multipart('Admin/actionReplace');?>
 										<?php echo validation_errors(); ?>
 												<input type="hidden" name="id" value="<?php echo $request[0]->id ?>">
 												<input type="hidden" name="upvote" value="<?php echo $request[0]->upvote ?>">

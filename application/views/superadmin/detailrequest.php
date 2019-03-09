@@ -1,5 +1,5 @@
 <?php
-$this->load->view('admin/header');
+$this->load->view('superadmin/header');
 $session_data = $this->session->userdata('logged in');
 $data['name'] = $session_data['name'];
 $data['status'] = $session_data['status'];

@@ -5,7 +5,7 @@
     class Auth extends CI_Model {
 
         public function login($username,$password){
-            $this->db->select('id,username,password,name,status,departement');
+            $this->db->select('id,username,password,name,status,departement,jabatan');
             $this->db->from('user');
             $this->db->where('username', $username);
             $this->db->where('password', MD5($password));
@@ -53,6 +53,12 @@
 
         public function getAllAdmin(){
             $this->db->where('status !=', "User");
+            $query = $this->db->get('user');
+            return $query->result();
+        }
+
+        public function getAllUser(){
+            $this->db->where('status', "User");
             $query = $this->db->get('user');
             return $query->result();
         }

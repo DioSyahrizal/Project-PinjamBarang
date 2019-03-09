@@ -1,4 +1,5 @@
-<?php $this->load->view('admin/header');
+
+<?php $this->load->view('superadmin/header');
 ?>
 
 <div id="page-wrapper">
@@ -54,5 +55,5 @@
 </div>
 
 
-<?php $this->load->view('admin/footer');
+<?php $this->load->view('superadmin/footer');
 ?>

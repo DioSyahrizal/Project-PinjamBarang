@@ -25,16 +25,6 @@
 
         }
 
-        public function menuadmin(){
-            $session_data = $this->session->userdata('logged in');
-            if ($session_data && $session_data['status']!='user') {
-                $this->load->model('Auth');
-                $data['listadmin']=$this->Auth->getAllAdmin();
-                $this->load->view('admin/menuadmin',$data);
-            }else{
-                redirect('Welcome','refresh');
-            }
-        }
 
         public function update($id)
         {
@@ -129,17 +119,11 @@
 
         public function request()
         {
+            $session_data = $this->session->userdata('logged in');
+            $data['departement'] = $session_data['departement'];
             $this->load->model('Request');
-            $data['pinjam']=$this->Request->getrequestAll();
+            $data['request']=$this->Request->getrequestFromDepartement($data['departement']);
             $this->load->view('admin/request', $data);
-
-        }
-
-        public function detailRequest($id)
-        {
-            $this->load->model('Request');
-            $data['pinjam']=$this->Request->getrequestByID($id);
-            $this->load->view('admin/detailrequest', $data);
         }
 
         public function prosesPinjam($id)
@@ -168,6 +152,71 @@
                 echo $this->datatables->generate();
         }
 
+        function detailRequest($id)
+        {
+            $this->load->model('Request');
+            $tampil['request']=$this->Request->getrequestByID($id);
+            $tampil['detail']=$this->Request->view_detailRequest($id);
+            $this->load->view('admin/detailrequest', $tampil);
+        }
+
+        public function actionRequest()
+        {
+            $this->load->model('Request');
+            $this->Request->actionRequest();
+            redirect('Admin/request','refresh');
+        }
+
+        public function accRequest($id)
+        {
+            $this->load->model('Request');
+            $this->Request->accRequest($id);
+            redirect('Admin/request','refresh');
+        }
+
+        public function declineRequest($id)
+        {
+            $this->load->model('Request');
+            $this->Request->declineRequest($id);
+            redirect('Admin/request','refresh');
+        }
+
+        public function replace()
+        {
+            $session_data = $this->session->userdata('logged in');
+            $data['departement'] = $session_data['departement'];
+            $this->load->model('Replace');
+            $data['request']=$this->Replace->getreplaceFromDepartement($data['departement']);
+            $this->load->view('admin/replace', $data);
+        }
+
+        function detailReplace($id)
+        {
+            $this->load->model('Replace');
+            $tampil['detail']=$this->Replace->view_detailReplace($id);
+            $this->load->view('admin/detailreplace', $tampil);
+        }
+
+        public function accReplace($id)
+        {
+            $this->load->model('Request');
+            $this->Request->accReplace($id);
+            redirect('Admin/replace','refresh');
+        }
+
+        public function declineReplace($id)
+        {
+            $this->load->model('Replace');
+            $this->Replace->declineReplace($id);
+            redirect('Admin/replace','refresh');
+        }
+
+        public function actionReplace()
+        {
+            $this->load->model('Replace');
+            $this->Replace->actionReplace();
+            redirect('Admin/replace','refresh');
+        }
 
     }
 

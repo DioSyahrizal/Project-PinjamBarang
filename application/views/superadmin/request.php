@@ -1,16 +1,7 @@
 <?php
-$this->load->view('admin/header');
+$this->load->view('superadmin/header');
 $session_data = $this->session->userdata('logged in');
 $data['status'] = $session_data['status'];
-$data['jabatan'] = $session_data['jabatan'];
-$jabatan = '';
-	if($data['jabatan']=="Supervisor"){
-		$jabatan="supervisor";
-	}elseif ($data['jabatan']=="Manager Maintenance") {
-		$jabatan="manager";
-	}else{
-		$jabatan="s_maintenance";
-	}
 
 ?>
 
@@ -54,26 +45,8 @@ $jabatan = '';
                                 <td><?php echo $key->upvote ?></td>
 								<td><?php echo $key->downvote ?></td>
 								<td><?php echo $key->status ?></td>
-								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Admin/detailRequest/<?php echo $key->id ?>">Detail</a>
-								<?php if($key->upvote == 3){ ?>
-									<td><a href="<?=site_url()?>/Admin/accRequest/<?php echo $key->id ?>"><button class="btn btn-success btn-xs">Acc</button></a></td>
-								<?php }else if($key->downvote >= 1){ ?>
-									<td><a href="<?=site_url()?>/Admin/declineRequest/<?php echo $key->id ?>"><button class="btn btn-danger btn-xs">Decline</button></a></td>
-								<?php }else{ ?>
-									<?php if($request[0]->$jabatan == 1){ ?>
-											<td>Sudah vote</td>
-									<?php }else{?>
-										<?php echo form_open_multipart('Admin/actionRequest');?>
-										<?php echo validation_errors(); ?>
-												<input type="hidden" name="id" value="<?php echo $request[0]->id ?>">
-												<input type="hidden" name="upvote" value="<?php echo $request[0]->upvote ?>">
-												<input type="hidden" name="downvote" value="<?php echo $request[0]->downvote ?>">
-												<input type="hidden" name="jabatan" value="<?php echo $data['jabatan'] ?>">
-												<td><button type="submit" name="action" value="upvote" class="btn btn-warning btn-xs">Upvote</button>
-												<button type="submit" name="action" value="downvote" class="btn btn-danger btn-xs">Downvote</button></td>
-										<?php echo form_close(); ?>
-									<?php } ?>
-								<?php } ?>
+								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Superadmin/detailRequest/<?php echo $key->id ?>">Detail</a>
+								<td><a href="<?=site_url()?>/Superadmin/deleteRequest/<?php echo $key->id ?>" class="btn btn-danger btn-xs">Delete</a></td>
 							</tr>
                         <?php } ?>
 						</tbody>

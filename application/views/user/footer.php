@@ -5,6 +5,11 @@
     <script src="<?=base_url()?>assets/vendor/bootstrap/js/bootstrap.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
+    <script src="<?=base_url()?>assets/dist/js/sb-admin-2.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="<?=base_url()?>assets/vendor/metisMenu/metisMenu.min.js"></script>
+
     <!-- CSS -->
     <script type="text/javascript">
         $(document).ready(function(){
@@ -72,6 +77,7 @@
                     return false;
                 }
             });
+
 
             $('#barang').autocomplete({
                 source: "<?php echo site_url('User/get_autocomplete');?>",

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 06, 2019 at 04:54 PM
+-- Generation Time: Mar 08, 2019 at 07:31 PM
 -- Server version: 5.7.25-0ubuntu0.18.04.2
 -- PHP Version: 7.2.15-0ubuntu0.18.04.1
 
@@ -47,15 +47,29 @@ INSERT INTO `barang` (`code`, `nama_barang`, `store_location`, `clasification`) 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detail_replace`
+--
+
+CREATE TABLE `detail_replace` (
+  `id` int(11) NOT NULL,
+  `id_replace` int(11) NOT NULL,
+  `barang` varchar(50) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `store_location` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `detail_request`
 --
 
 CREATE TABLE `detail_request` (
   `id` int(11) NOT NULL,
   `id_request` int(11) NOT NULL,
-  `barang` int(11) NOT NULL,
+  `barang` text NOT NULL,
   `qty` int(11) NOT NULL,
-  `store_location` int(11) NOT NULL
+  `store_location` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -69,7 +83,32 @@ CREATE TABLE `request` (
   `tanggal_request` varchar(50) NOT NULL,
   `tanggal_acc` varchar(50) NOT NULL,
   `requester` varchar(100) NOT NULL,
-  `departement` varchar(100) NOT NULL
+  `departement` varchar(100) NOT NULL,
+  `upvote` int(11) NOT NULL,
+  `downvote` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `supervisor` int(11) NOT NULL,
+  `manager` int(11) NOT NULL,
+  `s_maintenance` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_replace`
+--
+
+CREATE TABLE `tbl_replace` (
+  `id` int(11) NOT NULL,
+  `tanggal_replace` varchar(50) NOT NULL,
+  `tanggal_acc` varchar(50) NOT NULL,
+  `replacer` varchar(100) NOT NULL,
+  `departement` varchar(100) NOT NULL,
+  `upvote` int(11) NOT NULL,
+  `downvote` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `supervisor` int(11) NOT NULL,
+  `s_maintenance` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -84,7 +123,7 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
   `departement` varchar(50) NOT NULL,
-  `status` enum('admin','admin2','admin3','user') NOT NULL,
+  `status` enum('admin','superadmin','user') NOT NULL,
   `jabatan` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -93,11 +132,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `departement`, `status`, `jabatan`) VALUES
-(1, 'dio', '27b205035c328b16d8c8329c4b41e87e', 'Muhammad Dio Syahrizal', 'Administrator', 'admin', ''),
-(2, 'lala', '2e3817293fc275dbee74bd71ce6eb056', 'Lala', 'Engineering', 'user', ''),
-(3, 'mirai', 'c631dac97d3f6112e92c51af79b3ed4a', 'Mirai Suenaga', 'Electrical', 'user', ''),
-(6, 'ash', '2852f697a9f8581725c6fc6a5472a2e5', 'Ash', 'ACB MCCB', 'user', 'user'),
-(7, 'loco', '4c193eb3ec2ce5f02b29eba38621bea1', 'Loco', 'ACB MCCB', 'admin', 'Supervisor');
+(1, 'wijaya', 'd5ae0f43f56adb44d5a48f9605794c27', 'Joko Dwi Admawijaya', 'Administrator', 'superadmin', 'superadmin');
 
 --
 -- Indexes for dumped tables
@@ -110,6 +145,12 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`code`);
 
 --
+-- Indexes for table `detail_replace`
+--
+ALTER TABLE `detail_replace`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `detail_request`
 --
 ALTER TABLE `detail_request`
@@ -119,6 +160,12 @@ ALTER TABLE `detail_request`
 -- Indexes for table `request`
 --
 ALTER TABLE `request`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_replace`
+--
+ALTER TABLE `tbl_replace`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -135,17 +182,27 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `detail_replace`
+--
+ALTER TABLE `detail_replace`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `detail_request`
 --
 ALTER TABLE `detail_request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `request`
 --
 ALTER TABLE `request`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_replace`
+--
+ALTER TABLE `tbl_replace`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --

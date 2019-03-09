@@ -21,7 +21,7 @@ $tanggal2=date('d-m-Y');
 		<div class="col-lg-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Request
+					Replace
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -80,12 +80,12 @@ $tanggal2=date('d-m-Y');
 					Empty
 					<!-- /.panel-body -->
 				</div>
-				<?php echo form_open_multipart('User/addRequest');?>
+				<?php echo form_open_multipart('User/addReplace');?>
 				<?php echo validation_errors(); ?>
 					<input type="hidden" name="tanggal_request" value="<?php echo $tanggal2 ?>">
 					<input type="hidden" name="requester" value="<?php echo $data['name'] ?>">
 					<input type="hidden" name="departement" value="<?php echo $data['departement'] ?>">
-					<button type="submit" id="submit" class="btn btn-primary btn-block">Request Barang</button>
+					<button type="submit" id="submit" class="btn btn-primary btn-block">Replace Barang</button>
 				<?php echo form_close(); ?>
 				<!-- /.panel -->
 			</div>

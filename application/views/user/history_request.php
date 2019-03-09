@@ -16,26 +16,28 @@ $data['id'] = $session_data['id'];
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
 						<thead>
 							<tr>
-								<th></th>
-								<th>Requester</th>
-								<th>Tools/Device</th>
-								<th>Quantity</th>
+								<th>ID</th>
 								<th>Request Date</th>
-								<th>Approval Date</th>
+								<th>Requester</th>
+								<th>Departement</th>
+								<th>Upvote</th>
+								<th>Downvote</th>
 								<th>Status</th>
+								<th>Detail</th>
 							</tr>
 						</thead>
 						<tbody>
                         <?php foreach ($tabel as $key) { ?>
                             <tr>
-                                <td><?php echo $key->id_request ?></td>
-                                <td><?php echo $key->nama_requester ?></td>
-                                <td><?php echo $key->barang ?></td>
-                                <td><?php echo $key->jumlah ?></td>
-                                <td><?php echo $key->tgl_request ?></td>
-                                <td><?php echo $key->tgl_acc ?></td>
-                                <td><?php echo $key->status ?></td>
-                            </tr>
+                                <td><?php echo $key->id ?></td>
+                                <td><?php echo $key->tanggal_request ?></td>
+                                <td><?php echo $key->requester ?></td>
+                                <td><?php echo $key->departement ?></td>
+                                <td><?php echo $key->upvote ?></td>
+								<td><?php echo $key->downvote ?></td>
+								<td><?php echo $key->status ?></td>
+								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/User/detailRequest/<?php echo $key->id ?>">Detail</a></td>
+							</tr>
                         <?php } ?>
 						</tbody>
 					</table>

@@ -1,7 +1,6 @@
 <?php $this->load->view('user/header');
 $session_data = $this->session->userdata('logged in');
 $data['id'] = $session_data['id'];
-
 ?>
 
 <div id="page-wrapper">
@@ -10,32 +9,35 @@ $data['id'] = $session_data['id'];
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					List Barang
+					Replace History
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
 					<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-					<thead>
+						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Request Date</th>
-								<th>Acc Date</th>
-								<th>Requester</th>
+								<th>Replace Date</th>
+								<th>Replacer</th>
 								<th>Departement</th>
+								<th>Upvote</th>
+								<th>Downvote</th>
+								<th>Status</th>
+								<th>Detail</th>
 							</tr>
 						</thead>
 						<tbody>
                         <?php foreach ($tabel as $key) { ?>
                             <tr>
-                                <td><?php echo $key->id_request ?></td>
-                                <td><?php echo $key->barang ?></td>
-                                <td><?php echo $key->jumlah ?></td>
-                                <td><?php echo $key->tgl_request ?></td>
-                                <td><?php echo $key->tgl_acc ?></td>
-								<td><img src="<?=base_url(kode($key->admin1_acc))?>" width="30px" height="30px"></td>
-								<td><img src="<?=base_url(kode($key->admin2_acc))?>" width="30px" height="30px"></td>
-								<td><img src="<?=base_url(kode($key->admin3_acc))?>" width="30px" height="30px"></td>
-								</tr>
+                                <td><?php echo $key->id ?></td>
+                                <td><?php echo $key->tanggal_replace ?></td>
+                                <td><?php echo $key->replacer ?></td>
+                                <td><?php echo $key->departement ?></td>
+                                <td><?php echo $key->upvote ?></td>
+								<td><?php echo $key->downvote ?></td>
+								<td><?php echo $key->status ?></td>
+								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/User/detailReplace/<?php echo $key->id ?>">Detail</a></td>
+							</tr>
                         <?php } ?>
 						</tbody>
 					</table>

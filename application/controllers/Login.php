@@ -64,7 +64,8 @@
                         'username'=>$row->username,
                         'name'=>$row->name,
                         'status'=>$row->status,
-                        'departement'=>$row->departement
+                        'departement'=>$row->departement,
+                        'jabatan'=>$row->jabatan
                     );
                     $this->session->set_userdata('logged in', $sess_array );
                 }

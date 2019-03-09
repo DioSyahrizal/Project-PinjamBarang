@@ -76,7 +76,7 @@
 				</table>
             ';
             if($count == 0){
-                $output = '<h3 align="center">Cart is empty</h3>';
+                $output = '<h3 id="isicart" align="center">Cart is empty</h3>';
             }
             return $output;
         }

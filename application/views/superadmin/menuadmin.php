@@ -27,6 +27,7 @@
 								<th>Departement</th>
 								<th>Status</th>
 								<th>Update</th>
+								<th>Delete</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -37,7 +38,14 @@
                                 <td><?php echo $key->name ?></td>
                                 <td><?php echo $key->departement ?></td>
                                 <td><?php echo $key->status ?></td>
-								<td><a class="btn btn-warning btn-xs" href="<?=site_url()?>/Admin/update/<?php echo $key->id ?>">Update</a></td>
+								<td><a class="btn btn-warning btn-xs" href="<?=site_url()?>/Superadmin/update/<?php echo $key->id ?>">Update</a></td>
+								<?php if($key->status == 'superadmin') {?>
+									<td><p>Cannot be deleted</p></td>
+								<?php }else{?>
+									<td><a class="btn btn-danger btn-xs" href="<?=site_url()?>/Superadmin/deleteUser/<?php echo $key->id ?>">Delete</a></td>
+							<?php }
+								?>
+
                             </tr>
                         <?php } ?>
 						</tbody>

@@ -15,6 +15,21 @@
         {
             $session_data = $this->session->userdata('logged in');
             if ($session_data && $session_data['status']!='user') {
+                $this->load->model('barang');
+                $data['countBarang']=$this->barang->countBarang();
+                $data['countRequest']=$this->barang->countRequest();
+                $data['countReplace']=$this->barang->countReplace();
+                $data['countAdmin']=$this->barang->countAdmin();
+                $this->load->view('superadmin/dashboard',$data);
+            }else{
+                redirect('Welcome','refresh');
+            }
+        }
+
+        public function menuAdmin()
+        {
+            $session_data = $this->session->userdata('logged in');
+            if ($session_data && $session_data['status']!='user') {
                 $this->load->model('Auth');
                 $data['listadmin']=$this->Auth->getAllAdmin();
                 $this->load->view('superadmin/menuadmin',$data);
@@ -77,6 +92,74 @@
             $this->Replace->deleteReplace($id);
             redirect('Superadmin/replace','refresh');
 
+        }
+
+        public function tabel()
+        {
+            $this->load->model('barang');
+		    $tampil['review']=$this->barang->tampilDataBarang();
+            $this->load->view('superadmin/tables',$tampil);
+
+        }
+
+        public function updateBarang($id)
+        {
+            $this->form_validation->set_rules('nama_barang','Tools','trim|required');
+
+            $this->load->model('Barang');
+            $tampil['barang']=$this->Barang->getBarang($id);
+            if ($this->form_validation->run() == FALSE) {
+                $this->load->view('superadmin/updateBarang', $tampil);
+            } else {
+                $this->Barang->updateBarang($id);
+                redirect('superadmin/tabel','refresh');
+            }
+        }
+
+        public function deleteBarang($id)
+        {
+            $this->load->model('Barang');
+            $this->Barang->deleteBarang($id);
+            redirect('Superadmin/tabel','refresh');
+        }
+
+        public function update($id)
+        {
+            $this->form_validation->set_rules('name','Name','trim|required');
+
+            $this->load->model('Auth');
+            $tampil['list_user']=$this->Auth->getUser($id);
+            if($this->form_validation->run() == FALSE) {
+                $this->load->view('superadmin/admin',$tampil);
+            } else {
+                //$data = array('upload_data' => $this->upload->data());
+                $this->Auth->updateUser($id);
+                redirect('Superadmin/index','refresh');
+
+            }
+        }
+
+        public function updatePassword($id)
+        {
+            $this->form_validation->set_rules('password','Password','trim|required');
+            $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+
+            $this->load->model('Auth');
+            $tampil['list_user']=$this->Auth->getUser($id);
+            if($this->form_validation->run() == FALSE) {
+                $this->load->view('superadmin/admin',$tampil);
+            } else {
+                //$data = array('upload_data' => $this->upload->data());
+                $this->Auth->updatePassword($id);
+                redirect('Superadmin/index','refresh');
+            }
+        }
+
+        public function deleteUser($id)
+        {
+            $this->load->model('Auth');
+            $this->Auth->deleteUser($id);
+            redirect('Superadmin/tabel','refresh');
         }
 
 

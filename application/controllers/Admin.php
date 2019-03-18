@@ -16,8 +16,9 @@
             if ($session_data && $session_data['status']!='user') {
                 $this->load->model('barang');
                 $data['countBarang']=$this->barang->countBarang();
-                $data['countPermintaan']=$this->barang->countPermintaan();
-                $data['countKembali']=$this->barang->countKembali();
+                $data['countRequest']=$this->barang->countRequest();
+                $data['countReplace']=$this->barang->countReplace();
+                $data['countAdmin']=$this->barang->countAdmin();
                 $this->load->view('admin/index',$data);
             }else{
                 redirect('Welcome','refresh');

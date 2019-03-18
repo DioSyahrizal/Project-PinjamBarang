@@ -1,4 +1,4 @@
-<?php $this->load->view('admin/header');?>
+<?php $this->load->view('superadmin/header');?>
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?=site_url()?>/Admin/request">
+                        <a href="<?=site_url()?>/Superadmin/request">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -65,7 +65,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="<?=site_url()?>/Admin/replace">
+                        <a href="<?=site_url()?>/Superadmin/replace">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -87,7 +87,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#" onClick="alert('Hanya Super Admin yang bisa melihat list Admin!')">
+                        <a href="<?=site_url()?>/Superadmin/menuAdmin">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -101,4 +101,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-<?php $this->load->view('admin/footer');?>
+<?php $this->load->view('superadmin/footer');?>

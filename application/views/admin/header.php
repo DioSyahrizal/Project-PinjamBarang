@@ -28,6 +28,8 @@
 
     <title>Admin - <?php echo $data['name'] ?></title>
 
+    <link rel="shortcut icon" href="<?=base_url()?>assets/icon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?=base_url()?>assets/icon/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 

@@ -16,6 +16,8 @@
 
 	<title>User - <?php echo $data['name'] ?></title>
 
+	<link rel="shortcut icon" href="<?=base_url()?>assets/icon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?=base_url()?>assets/icon/favicon.ico" type="image/x-icon">
 	<!-- Bootstrap Core CSS -->
 	<link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">

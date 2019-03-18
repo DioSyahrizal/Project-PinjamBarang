@@ -28,6 +28,8 @@
 
     <title>Super Admin - <?php echo $data['name'] ?></title>
 
+    <link rel="shortcut icon" href="<?=base_url()?>assets/icon/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="<?=base_url()?>assets/icon/favicon.ico" type="image/x-icon">
     <!-- Bootstrap Core CSS -->
     <link href="<?=base_url()?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -140,14 +142,25 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="<?=site_url()?>/Superadmin/index"><i class="fa fa-user fa-fw"></i> Admin List</a>
+                        <a href="<?=site_url()?>/Superadmin/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?=site_url()?>/Superadmin/menuUser"><i class="fa fa-user fa-fw"></i> User List</a>
+                            <a href=""><i class="fa fa-table fa-fw"></i> List User/Admin<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?=site_url()?>/Superadmin/menuAdmin"><i class="fa fa-user fa-fw"></i> Admin List</a>
+                                </li>
+                                <li>
+                                    <a href="<?=site_url()?>/Superadmin/menuUser"><i class="fa fa-user fa-fw"></i> User List</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-table fa-fw"></i> Store<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?=site_url()?>/Superadmin/tabel">Tools/Device List</a>
+                                </li>
                                 <li>
                                     <a href="<?=site_url()?>/Superadmin/request">Tools/Device Request</a>
                                 </li>

@@ -63,6 +63,12 @@
             return $query->result();
         }
 
+        public function deleteUser($id)
+        {
+            $this->db->where('id', $id);
+            $this->db->delete('user');
+        }
+
 
     }
 

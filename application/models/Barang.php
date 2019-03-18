@@ -56,17 +56,18 @@
             return $query->result();
         }
 
-        function countPermintaan(){
-            $query = $this->db->query("SELECT count(*) as permintaan from request WHERE status='Proses Cek'");
+        function countRequest(){
+            $query = $this->db->query("SELECT count(*) as count_request from request WHERE status='Proses'");
             return $query->result();
         }
 
-        function countDipinjam(){
-            $query = $this->db->query("");
+        function countReplace(){
+            $query = $this->db->query("SELECT count(*) as count_replace FROM tbl_replace WHERE status='Proses'");
+            return $query->result();
         }
 
-        function countKembali(){
-            $query = $this->db->query("SELECT count(*) as kembali FROM request WHERE status='Kembali'");
+        function countAdmin(){
+            $query = $this->db->query("SELECT count(*) as count_admin FROM user WHERE status='admin'");
             return $query->result();
         }
 

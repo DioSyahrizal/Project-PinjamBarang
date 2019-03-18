@@ -121,7 +121,7 @@
             $tanggal2=date('d-m-Y');
             $data = array(
                 'tanggal_acc'   =>$tanggal2,
-                'status'        =>"Barang Acc"
+                'status'        =>"Approve"
             );
             $this->db->where('id', $id);
             $this->db->update('request', $data);
@@ -130,7 +130,7 @@
         function declineRequest($id)
         {
             $data = array(
-                'status'        =>"Barang Decline"
+                'status'        =>"Decline"
             );
             $this->db->where('id', $id);
             $this->db->update('request', $data);

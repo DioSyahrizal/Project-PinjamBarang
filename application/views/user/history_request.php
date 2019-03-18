@@ -77,57 +77,10 @@ $data['id'] = $session_data['id'];
 <script>
 	$(document).ready(function () {
 		$('#dataTables-example').DataTable({
-
-			// "processing": true,
-			// "serverSide": true,
-			// "lengthMenu": [
-			// 	[6, 10, 15, -1],
-			// 	[6, 10, 15, "All"]
-			// ],
-			// "responsive": true,
-			// "ajax": {
-			// 	url: "<?php echo site_url('User/data_server/'.$data['id']) ?>",
-			// 	type: "POST"
-			// },
-			// "columnDefs": [{
-			// 		"targets": 0,
-			// 		"data": "id_pinjam",
-			// 	},
-			// 	{
-			// 		"targets": 1,
-			// 		"data": "admin_penerima",
-			// 	},
-			// 	{
-			// 		"targets": 2,
-			// 		"data": "nama_peminjam",
-			// 	},
-			// 	{
-			// 		"targets": 3,
-			// 		"data": "barang",
-			// 	},
-			// 	{
-			// 		"targets": 4,
-			// 		"data": "jumlah",
-			// 	},
-			// 	{
-			// 		"targets": 5,
-			// 		"data": "tgl_pinjam",
-			// 	},
-			// 	{
-			// 		"targets": 6,
-			// 		"data": "tgl_kembali",
-			// 	},
-			// 	{
-			// 		"targets": 7,
-			// 		"data": "status",
-			// 	},
-			// ],
             "createdRow": function( row, data, dataIndex ) {
-             if ( data[7] == "Proses Cek" ) {
-                $(row).addClass('yellow');
-            }else if(data[7] == "Ada"){
+             if ( data[7] == "Approve" ) {
                 $(row).addClass('green');
-            }else if(data[7] == "Habis"){
+            }else if(data[7] == "Decline"){
                 $(row).addClass('red');
             }
             }

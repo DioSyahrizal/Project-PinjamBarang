@@ -154,7 +154,7 @@
                                     <a href="<?=site_url()?>/Admin/request">Tools/Device Request</a>
                                 </li>
                                 <?php if($jabatan == 'manager'){
-                                    return 0;
+
                                     }else { ?>
                                 <li>
                                     <a href="<?=site_url()?>/Admin/replace">Tools/Device Replace</a>

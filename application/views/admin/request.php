@@ -68,7 +68,7 @@ $jabatan = '';
 												<input type="hidden" name="id" value="<?php echo $request[0]->id ?>">
 												<input type="hidden" name="upvote" value="<?php echo $request[0]->upvote ?>">
 												<input type="hidden" name="downvote" value="<?php echo $request[0]->downvote ?>">
-												<input type="hidden" name="jabatan" value="<?php echo $data['jabatan'] ?>">
+												<input type="hidden" name="jabatan" value="<?php echo $jabatan ?>">
 												<td><button type="submit" name="action" value="upvote" class="btn btn-warning btn-xs">Upvote</button>
 												<button type="submit" name="action" value="downvote" class="btn btn-danger btn-xs">Downvote</button></td>
 										<?php echo form_close(); ?>

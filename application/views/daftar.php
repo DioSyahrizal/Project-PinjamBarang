@@ -90,7 +90,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="submit" class="btn btn-primary button">Log in</button>
+				<button type="submit" class="btn btn-primary button">Daftar</button>
 				<button type="button" class="btn btn-default button" data-dismiss="modal">Close</button>
 				<?php echo form_close(); ?>
 			</div>

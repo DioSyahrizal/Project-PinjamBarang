@@ -78,15 +78,14 @@ $data['id'] = $session_data['id'];
 	$(document).ready(function () {
 		$('#dataTables-example').DataTable({
             "createdRow": function( row, data, dataIndex ) {
-             if ( data[7] == "Approve" ) {
+             if ( data[6] == "Approved" ) {
                 $(row).addClass('green');
-            }else if(data[7] == "Decline"){
+            }else if(data[6] == "Decline"){
                 $(row).addClass('red');
             }
             }
         });
 	});
-
 </script>
 </body>
 

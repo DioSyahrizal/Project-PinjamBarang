@@ -8,6 +8,10 @@
             parent::__construct();
             $this->load->helper('url','form');
             $this->load->library('form_validation');
+            $session_data = $this->session->userdata('logged in');
+            if ($session_data['status']!='admin') {
+                redirect('Welcome','refresh');
+            }
         }
 
         public function index()
@@ -121,9 +125,14 @@
         public function request()
         {
             $session_data = $this->session->userdata('logged in');
-            $data['departement'] = $session_data['departement'];
+            $data['username'] = $session_data['username'];
+            $data['jabatan'] = $session_data['jabatan'];
             $this->load->model('Request');
-            $data['request']=$this->Request->getrequestFromDepartement($data['departement']);
+            if($data['jabatan'] == 'Supervisor'){
+                $data['request']=$this->Request->getrequestFromPengampu($data['username']);
+            }else{
+                $data['request']=$this->Request->getrequestAdmin();
+            }
             $this->load->view('admin/request', $data);
         }
 
@@ -185,9 +194,15 @@
         public function replace()
         {
             $session_data = $this->session->userdata('logged in');
-            $data['departement'] = $session_data['departement'];
+            $data['username'] = $session_data['username'];
+            $data['jabatan'] = $session_data['jabatan'];
             $this->load->model('Replace');
-            $data['request']=$this->Replace->getreplaceFromDepartement($data['departement']);
+            if($data['jabatan'] == 'Supervisor'){
+                $data['request']=$this->Replace->getreplaceFromPengampu($data['username']);
+            }else{
+                $data['request']=$this->Replace->getreplaceAdmin();
+            }
+            //$data['request']=$this->Replace->getreplaceFromDepartement($data['departement']);
             $this->load->view('admin/replace', $data);
         }
 
@@ -217,6 +232,24 @@
             $this->load->model('Replace');
             $this->Replace->actionReplace();
             redirect('Admin/replace','refresh');
+        }
+
+        public function history_request()
+        {
+            $session_data = $this->session->userdata('logged in');
+            $data['departement'] = $session_data['departement'];
+            $this->load->model('Request');
+            $data['request']=$this->Request->getrequestHistory($data['departement']);
+            $this->load->view('admin/history_request', $data);
+        }
+
+        public function history_replace()
+        {
+            $session_data = $this->session->userdata('logged in');
+            $data['departement'] = $session_data['departement'];
+            $this->load->model('Replace');
+            $data['request']=$this->Replace->getreplaceHistory( $data['departement']);
+            $this->load->view('admin/history_replace', $data);
         }
 
     }

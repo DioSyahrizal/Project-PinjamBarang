@@ -5,13 +5,15 @@
     $data['status'] = $session_data['status'];
     $data['jabatan'] = $session_data['jabatan'];
     $jabatan = '';
-        if($data['jabatan']=="Supervisor"){
-            $jabatan="supervisor";
-        }elseif ($data['jabatan']=="Manager Maintenance") {
-            $jabatan="manager";
-        }else{
-            $jabatan="s_maintenance";
-        }
+	if($data['jabatan']=="Supervisor"){
+		$jabatan="pilih_supervisor";
+	}elseif ($data['jabatan']=="Maintenance Engineer") {
+		$jabatan="pilih_engineer";
+	}elseif($data['jabatan']=="Maintenance Manager"){
+		$jabatan="pilih_manager";
+	}elseif($data['jabatan']=="Operational Manager"){
+		$jabatan="pilih_operational";
+	}
 
 
  ?>
@@ -144,6 +146,8 @@
                         <li>
                             <a href="<?=site_url()?>/Admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
+                        <?php if( !$data['jabatan']) {
+                            }else{ ?>
                         <li>
                             <a href=""><i class="fa fa-table fa-fw"></i> Store<span class="fa arrow"></a>
                             <ul class="nav nav-second-level">
@@ -153,18 +157,34 @@
                                 <li>
                                     <a href="<?=site_url()?>/Admin/request">Tools/Device Request</a>
                                 </li>
-                                <?php if($jabatan == 'manager'){
-
-                                    }else { ?>
+                                <?php if($jabatan == 'pilih_supervisor'){ ?>
                                 <li>
-                                    <a href="<?=site_url()?>/Admin/replace">Tools/Device Replace</a>
+                                    <a href="<?=site_url()?>/Admin/replace"> Tools/Device Replace</a>
                                 </li>
+                                 <?php }else { ?>
+
                                 <?php } ?>
                             </ul>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="<?=site_url()?>/Admin/isibarang"><i class="fa fa-edit fa-fw"></i> Add Tools/Device</a>
+                        </li> -->
+                        <li>
+							<a href=""><i class="fa fa-table fa-fw"></i> Accomplished Req/Rep<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+							<li>
+								<a href="<?=site_url()?>/Admin/history_request"><i class="fa fa-edit fa-fw"></i>Data Request</a>
+							</li>
+                            <?php if($jabatan != 'pilih_supervisor'){
+
+                            }else { ?>
+							<li>
+								<a href="<?=site_url()?>/Admin/history_replace"><i class="fa fa-edit fa-fw"></i>Data Replace</a>
+							</li>
+                            <?php } ?>
+                            </ul>
                         </li>
+                            <?php } ?>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

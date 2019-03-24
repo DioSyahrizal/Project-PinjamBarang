@@ -35,6 +35,7 @@ $data['jabatan'] = $session_data['jabatan'];
 								<th>Status</th>
 								<th>Detail</th>
 								<th>Action</th>
+								<th>Pilihan</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,6 +50,25 @@ $data['jabatan'] = $session_data['jabatan'];
 								<td><?php echo $key->status ?></td>
 								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Superadmin/detailReplace/<?php echo $key->id ?>">Detail</a>
                                 <td><a href="<?=site_url()?>/Superadmin/deleteReplace/<?php echo $key->id ?>" class="btn btn-danger btn-xs">Delete</a></td>
+								<?php if($key->upvote == 2){ ?>
+									<td><a href="<?=site_url()?>/Superadmin/accReplace/<?php echo $key->id ?>"><button class="btn btn-success btn-xs">Acc</button></a></td>
+								<?php }else if($key->downvote >= 1){ ?>
+									<td><a href="<?=site_url()?>/Superadmin/declineReplace/<?php echo $key->id ?>"><button class="btn btn-danger btn-xs">Decline</button></a></td>
+								<?php }else{ ?>
+									<?php if($request[0]->pilih_engineer == 1){ ?>
+											<td>Sudah vote</td>
+									<?php }else{?>
+										<?php echo form_open_multipart('Superadmin/actionReplace');?>
+										<?php echo validation_errors(); ?>
+												<input type="hidden" name="id" value="<?php echo $request[0]->id ?>">
+												<input type="hidden" name="upvote" value="<?php echo $request[0]->upvote ?>">
+												<input type="hidden" name="downvote" value="<?php echo $request[0]->downvote ?>">
+												<input type="hidden" name="jabatan" value="pilih_engineer">
+												<td><button type="submit" name="action" value="upvote" class="btn btn-warning btn-xs">Upvote</button>
+												<button type="submit" name="action" value="downvote" class="btn btn-danger btn-xs">Downvote</button></td>
+										<?php echo form_close(); ?>
+									<?php } ?>
+								<?php } ?>
 							</tr>
                         <?php } ?>
 						</tbody>

@@ -5,11 +5,13 @@ $data['status'] = $session_data['status'];
 $data['jabatan'] = $session_data['jabatan'];
 $jabatan = '';
 	if($data['jabatan']=="Supervisor"){
-		$jabatan="supervisor";
-	}elseif ($data['jabatan']=="Manager Maintenance") {
-		$jabatan="manager";
-	}else{
-		$jabatan="s_maintenance";
+		$jabatan="pilih_supervisor";
+	}elseif ($data['jabatan']=="Maintenance Engineer") {
+		$jabatan="pilih_engineer";
+	}elseif($data['jabatan']=="Maintenance Manager"){
+		$jabatan="pilih_manager";
+	}elseif($data['jabatan']=="Operational Manager"){
+		$jabatan="pilih_operational";
 	}
 
 ?>

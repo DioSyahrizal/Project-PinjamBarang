@@ -11,6 +11,19 @@
             return $query->result();
         }
 
+        function getreplaceFromPengampu($pengampu){
+            $this->db->where('status', 'Proses');
+            $this->db->where('pengampu', $pengampu);
+            $query = $this->db->get('tbl_replace');
+            return $query->result();
+        }
+
+        function getreplaceAdmin(){
+            $this->db->where('status', 'Proses');
+            $query = $this->db->get('tbl_replace');
+            return $query->result();
+        }
+
         function getreplaceAll(){
             $query = $this->db->get('tbl_replace');
             return $query->result();
@@ -66,7 +79,7 @@
             $tanggal2=date('d-m-Y');
             $data = array(
                 'tanggal_acc'   =>$tanggal2,
-                'status'        =>"Barang Acc"
+                'status'        =>"Approved"
             );
             $this->db->where('id', $id);
             $this->db->update('tbl_replace', $data);
@@ -75,7 +88,7 @@
         function declineReplace($id)
         {
             $data = array(
-                'status'        =>"Barang Decline"
+                'status'        =>"Decline"
             );
             $this->db->where('id', $id);
             $this->db->update('tbl_replace', $data);
@@ -95,12 +108,19 @@
                 $this->db->update('tbl_replace', $data);
             }else if($action=='downvote'){
                 $data = array(
-                    'downvote'  =>$this->input->post('upvote') + 1,
+                    'downvote'  =>$this->input->post('downvote') + 1,
                     $jabatan    =>1
                 );
                 $this->db->where('id', $id);
                 $this->db->update('tbl_replace', $data);
             }
+        }
+
+        function getreplaceHistory($departement){
+            $this->db->where('departement', $departement);
+            $this->db->where('status !=', 'Proses');
+            $query = $this->db->get('tbl_replace');
+            return $query->result();
         }
     }
 

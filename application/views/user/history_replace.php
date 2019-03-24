@@ -123,11 +123,9 @@ $data['id'] = $session_data['id'];
 			// 	},
 			// ],
             "createdRow": function( row, data, dataIndex ) {
-             if ( data[7] == "Proses Cek" ) {
-                $(row).addClass('yellow');
-            }else if(data[7] == "Ada"){
+			if ( data[6] == "Approved" ) {
                 $(row).addClass('green');
-            }else if(data[7] == "Habis"){
+            }else if(data[6] == "Decline"){
                 $(row).addClass('red');
             }
             }

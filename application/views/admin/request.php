@@ -5,11 +5,13 @@ $data['status'] = $session_data['status'];
 $data['jabatan'] = $session_data['jabatan'];
 $jabatan = '';
 	if($data['jabatan']=="Supervisor"){
-		$jabatan="supervisor";
-	}elseif ($data['jabatan']=="Manager Maintenance") {
-		$jabatan="manager";
-	}else{
-		$jabatan="s_maintenance";
+		$jabatan="pilih_supervisor";
+	}elseif ($data['jabatan']=="Maintenance Engineer") {
+		$jabatan="pilih_engineer";
+	}elseif($data['jabatan']=="Maintenance Manager"){
+		$jabatan="pilih_manager";
+	}elseif($data['jabatan']=="Operational Manager"){
+		$jabatan="pilih_operational";
 	}
 
 ?>
@@ -55,7 +57,7 @@ $jabatan = '';
 								<td><?php echo $key->downvote ?></td>
 								<td><?php echo $key->status ?></td>
 								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Admin/detailRequest/<?php echo $key->id ?>">Detail</a>
-								<?php if($key->upvote == 3){ ?>
+								<?php if($key->upvote == 4){ ?>
 									<td><a href="<?=site_url()?>/Admin/accRequest/<?php echo $key->id ?>"><button class="btn btn-success btn-xs">Acc</button></a></td>
 								<?php }else if($key->downvote >= 1){ ?>
 									<td><a href="<?=site_url()?>/Admin/declineRequest/<?php echo $key->id ?>"><button class="btn btn-danger btn-xs">Decline</button></a></td>

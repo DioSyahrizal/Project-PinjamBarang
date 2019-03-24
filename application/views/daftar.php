@@ -40,7 +40,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Modal title</h4>
+				<h4 class="modal-title">Daftar User</h4>
 			</div>
 			<div class="modal-body">
 				<?php echo form_open_multipart('login/createUser');?>
@@ -67,6 +67,7 @@
 					<select name="departement" id="selDepart" class="form-control" required="required">
 						<option value="">-- Departement --</option>
 						<option value="ACB MCCB">ACB MCCB</option>
+						<option value="Pre Wiring">Pre Wiring</option>
 						<option value="Busbar">Busbar</option>
 						<option value="Drawer">Drawer</option>
 						<option value="FAT">FAT</option>
@@ -88,6 +89,8 @@
 						<option value="Maintenance">Maintenance</option>
 					</select>
 				</div>
+				<input type="hidden" name="manager" value="">
+
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-primary button">Daftar</button>
@@ -121,6 +124,7 @@
 					<label for="Name">Name</label>
 					<input type="text" class="form-control" name="name" required>
 					<input type="hidden" name="status" value="admin">
+					<input type="hidden" name="manager" value="">
 				</div>
 
 				<div class="form-group">
@@ -129,6 +133,7 @@
 						<option value="">-- Departement --</option>
 						<option value="ACB MCCB">ACB MCCB</option>
 						<option value="Busbar">Busbar</option>
+						<option value="Pre Wiring">Pre Wiring</option>
 						<option value="Drawer">Drawer</option>
 						<option value="FAT">FAT</option>
 						<option value="Finishing PIX MCSet">Finishing PIX MCSet</option>
@@ -149,15 +154,7 @@
 						<option value="Maintenance">Maintenance</option>
 					</select>
 				</div>
-				<div class="form-group">
-					<label for="">Jabatan</label>
-					<select name="jabatan" id="jabatan" class="form-control" require="required">
-						<option value="">-- Jabatan --</option>
-						<option value="Supervisor">Supervisor</option>
-						<option value="Supervisor Maintenance">Supervisor Maintenance</option>
-						<option value="Manager Maintenance">Manager Maintenance</option>
-					</select>
-				</div>
+				<input type="hidden" name="jabatan" value="">
 			</div>
 			<div class="modal-footer">
 				<button type="submit" class="btn btn-primary button">Daftar</button>

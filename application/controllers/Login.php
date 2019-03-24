@@ -15,7 +15,9 @@
         //sign up
         public function daftar()
         {
-            $this->load->view('daftar');
+            $this->load->model('Auth');
+            $data['manager']=$this->Auth->getManager();
+            $this->load->view('daftar', $data);
 
         }
 
@@ -65,7 +67,8 @@
                         'name'=>$row->name,
                         'status'=>$row->status,
                         'departement'=>$row->departement,
-                        'jabatan'=>$row->jabatan
+                        'jabatan'=>$row->jabatan,
+                        'manager'=>$row->manager
                     );
                     $this->session->set_userdata('logged in', $sess_array );
                 }

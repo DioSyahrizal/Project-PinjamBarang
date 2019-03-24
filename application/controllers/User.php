@@ -9,6 +9,10 @@
             parent::__construct();
             $this->load->helper('url','form');
             $this->load->library('form_validation');
+            $session_data = $this->session->userdata('logged in');
+            if ($session_data['status']!='user') {
+                redirect('Welcome','refresh');
+            }
         }
 
         public function index()
@@ -91,9 +95,10 @@
                                 'upvote'            => 0,
                                 'downvote'          => 0,
                                 'status'            => 'Proses',
-                                'supervisor'        => 0,
-                                's_maintenance'     => 0,
-                                'manager'           => 0
+                                'pilih_supervisor'  => 0,
+                                'pilih_engineer'    => 0,
+                                'pilih_operational' => 0,
+                                'pengampu'          => $this->input->post('manager')
                             );
             $id_request = $this->Request->add_Request($data_order);
             //===========Tambah table detail request========================
@@ -138,8 +143,9 @@
                                 'upvote'            => 0,
                                 'downvote'          => 0,
                                 'status'            => 'Proses',
-                                'supervisor'        => 0,
-                                's_maintenance'     => 0
+                                'pilih_supervisor'  => 0,
+                                'pilih_engineer'    => 0,
+                                'pengampu'          => $this->input->post('manager')
                             );
             $id_replace = $this->Replace->add_Replace($data_order);
             //===========Tambah table detail replace========================

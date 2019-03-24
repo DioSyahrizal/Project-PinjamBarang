@@ -2,6 +2,15 @@
 $session_data = $this->session->userdata('logged in');
 $data['id'] = $session_data['id'];
 
+function kode($kode){
+	if ($kode == '0') {
+		return 'assets/icon/circle-outline.png';
+	}else if($kode == '1'){
+		return 'assets/icon/checked.png';
+	}else{
+		return 'assets/icon/error.png';
+	}
+}
 ?>
 
 <div id="page-wrapper">
@@ -19,10 +28,10 @@ $data['id'] = $session_data['id'];
 							<tr>
 								<th>ID</th>
 								<th>Request Date</th>
-								<th>Requester</th>
-								<th>Departement</th>
-								<th>Upvote</th>
-								<th>Downvote</th>
+								<th>Supervisor</th>
+								<th>Engineer</th>
+								<th>Manager</th>
+								<th>Operational</th>
 								<th>Status</th>
 								<th>Detail</th>
 							</tr>
@@ -32,11 +41,11 @@ $data['id'] = $session_data['id'];
                             <tr>
                                 <td><?php echo $key->id ?></td>
                                 <td><?php echo $key->tanggal_request ?></td>
-                                <td><?php echo $key->requester ?></td>
-                                <td><?php echo $key->departement ?></td>
-                                <td><?php echo $key->upvote ?></td>
-								<td><?php echo $key->downvote ?></td>
-								<td><?php echo $key->status ?></td>
+								<td><img src="<?=base_url(kode($key->pilih_supervisor))?>" width="30px" height="30px" alt=""></td>
+								<td><img src="<?=base_url(kode($key->pilih_engineer))?>" width="30px" height="30px" alt=""></td>
+								<td><img src="<?=base_url(kode($key->pilih_manager))?>" width="30px" height="30px" alt=""></td>
+								<td><img src="<?=base_url(kode($key->pilih_operational))?>" width="30px" height="30px" alt=""></td>
+                               	<td><?php echo $key->status ?></td>
 								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/User/detailRequest/<?php echo $key->id ?>">Detail</a></td>
 							</tr>
                         <?php } ?>

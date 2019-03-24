@@ -1,11 +1,11 @@
-<?php $this->load->view('admin/header');
+<?php $this->load->view('superadmin/header');
 ?>
 
 <body>
 	<div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Admin Profile</h1>
+				<h1 class="page-header"></h1>
 			</div>
 			<!-- /.col-lg-12 -->
 
@@ -35,6 +35,32 @@
 					 disabled>
 				</div>
 
+				<div class="form-group">
+					<label for="">Jabatan</label>
+					<select name="jabatan" id="jabatan" class="form-control" require="required" disabled>
+						<option value="">-- Jabatan --</option>
+						<option value="user">User</option>
+						<option value="Supervisor">Supervisor</option>
+						<option value="Maintenance Engineer">Maintenance Engineer</option>
+						<option value="Maintenance Manager">Maintenance Manager</option>
+						<option value="Operational Manager">Operational Manager</option>
+					</select>
+				</div>
+
+				<?php  if($list_user[0]->status == 'admin') {
+					}else {?>
+				<div class="form-group">
+						<label for="">Manager Pengampu</label>
+						<br>
+						<select name="manager" id="manager" class="form-control" required="required" disabled>
+							<option value="">-- Manager --</option>
+							<option value=" ">Kosong</option>
+							<?php foreach ($manager as $key) { ?>
+								<option value="<?php echo $key->username ?>"><?php echo $key->username ?></option>
+							<?php } ?>
+						</select>
+				</div>
+				<?php } ?>
 				<div class="form-group button">
 					<button type="submit" class="btn btn-success" id="submit" disabled>Submit</button>
 					<button type="button" class="btn btn-warning" id="update">Update</button>
@@ -103,12 +129,16 @@
 			$("#update").click(function (e) {
 				$("input").prop('disabled', false);
 				$('#submit').prop('disabled', false);
+				$('#jabatan').prop('disabled', false);
+				$('#manager').prop('disabled', false);
 				$(this).hide();
 				$('#cancel').show();
 			});
 			$('#cancel').click(function () {
 				$("input").prop('disabled', true);
 				$('#submit').prop('disabled', true);
+				$('#jabatan').prop('disabled', true);
+				$('#manager').prop('disabled', true);
 				$(this).hide();
 				$('#update').show();
 			});

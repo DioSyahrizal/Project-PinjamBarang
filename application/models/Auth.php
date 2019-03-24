@@ -5,7 +5,7 @@
     class Auth extends CI_Model {
 
         public function login($username,$password){
-            $this->db->select('id,username,password,name,status,departement,jabatan');
+            $this->db->select('id,username,password,name,status,departement,jabatan,manager');
             $this->db->from('user');
             $this->db->where('username', $username);
             $this->db->where('password', MD5($password));
@@ -17,13 +17,20 @@
             }
         }
 
+        public function getManager(){
+            $this->db->where('jabatan', 'Supervisor');
+            $query = $this->db->get('user');
+		    return $query->result();
+        }
+
         public function insertUser(){
             $object = array('username'=>$this->input->post('username'),
                             'password'=>MD5($this->input->post('password')),
                             'name'=>$this->input->post('name'),
                             'departement'=>$this->input->post('departement'),
                             'status'=>$this->input->post('status'),
-                            'jabatan'=>$this->input->post('jabatan')
+                            'jabatan'=>$this->input->post('jabatan'),
+                            'manager'=>$this->input->post('manager')
                             );
             $this->db->insert('user',$object);
         }
@@ -32,6 +39,8 @@
             $data = array(
                     'name'=>$this->input->post('name'),
                     'departement'=>$this->input->post('departement'),
+                    'jabatan'=>$this->input->post('jabatan'),
+                    'manager'=>$this->input->post('manager')
             );
             $this->db->where('id',$id);
             $this->db->update('user',$data);

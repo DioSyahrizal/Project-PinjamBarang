@@ -1,7 +1,9 @@
 <?php
-$this->load->view('superadmin/header');
+$this->load->view('admin/header');
 $session_data = $this->session->userdata('logged in');
 $data['status'] = $session_data['status'];
+$data['jabatan'] = $session_data['jabatan'];
+
 
 ?>
 
@@ -17,7 +19,7 @@ $data['status'] = $session_data['status'];
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					Request List
+					Replace List
 				</div>
 				<!-- /.panel-heading -->
 				<div class="panel-body">
@@ -25,48 +27,24 @@ $data['status'] = $session_data['status'];
 					<thead>
 							<tr>
 								<th>ID</th>
-								<th>Request Date</th>
-								<th>Requester</th>
+								<th>Replace Date</th>
+								<th>Replacer</th>
 								<th>Departement</th>
 								<th>Upvote</th>
 								<th>Downvote</th>
 								<th>Status</th>
-								<th>Detail</th>
-								<th>Action</th>
-								<th>Pilihan</th>
 							</tr>
 						</thead>
 						<tbody>
                         <?php foreach ($request as $key) { ?>
                             <tr>
                                 <td><?php echo $key->id ?></td>
-                                <td><?php echo $key->tanggal_request ?></td>
-                                <td><?php echo $key->requester ?></td>
+                                <td><?php echo $key->tanggal_replace ?></td>
+                                <td><?php echo $key->replacer ?></td>
                                 <td><?php echo $key->departement ?></td>
                                 <td><?php echo $key->upvote ?></td>
 								<td><?php echo $key->downvote ?></td>
 								<td><?php echo $key->status ?></td>
-								<td><a class="btn btn-primary btn-xs" href="<?=site_url()?>/Superadmin/detailRequest/<?php echo $key->id ?>">Detail</a>
-								<td><a href="<?=site_url()?>/Superadmin/deleteRequest/<?php echo $key->id ?>" class="btn btn-danger btn-xs">Delete</a></td>
-								<?php if($key->upvote == 4){ ?>
-									<td><a href="<?=site_url()?>/Superadmin/accRequest/<?php echo $key->id ?>"><button class="btn btn-success btn-xs">Acc</button></a></td>
-								<?php }else if($key->downvote >= 1){ ?>
-									<td><a href="<?=site_url()?>/Superadmin/declineRequest/<?php echo $key->id ?>"><button class="btn btn-danger btn-xs">Decline</button></a></td>
-								<?php }else{ ?>
-									<?php if($request[0]->pilih_engineer == 1){ ?>
-											<td>Sudah vote</td>
-									<?php }else{?>
-										<?php echo form_open_multipart('Superadmin/actionRequest');?>
-										<?php echo validation_errors(); ?>
-												<input type="hidden" name="id" value="<?php echo $request[0]->id ?>">
-												<input type="hidden" name="upvote" value="<?php echo $request[0]->upvote ?>">
-												<input type="hidden" name="downvote" value="<?php echo $request[0]->downvote ?>">
-												<input type="hidden" name="jabatan" value="pilih_engineer">
-												<td><button type="submit" name="action" value="upvote" class="btn btn-warning btn-xs">Upvote</button>
-												<button type="submit" name="action" value="downvote" class="btn btn-danger btn-xs">Downvote</button></td>
-										<?php echo form_close(); ?>
-									<?php } ?>
-								<?php } ?></td>
 							</tr>
                         <?php } ?>
 						</tbody>
@@ -105,14 +83,11 @@ $data['status'] = $session_data['status'];
 $(document).ready(function() {
     $('#dataTables-example').DataTable({
         "createdRow": function( row, data, dataIndex ) {
-             if ( data[6] == "Proses Cek" ) {
-                $(row).addClass('yellow');
-            }else if(data[6] == "Ada"){
+            if ( data[6] == "Approved" ) {
                 $(row).addClass('green');
-            }else if(data[6] == "Habis"){
+            }else if(data[6] == "Decline"){
                 $(row).addClass('red');
             }
-
         },
 
     });

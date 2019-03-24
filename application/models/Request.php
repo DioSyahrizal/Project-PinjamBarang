@@ -17,9 +17,17 @@
             $this->db->insert('request', $data);
         }
 
-        function getrequestFromDepartement($departement){
+        function getrequestFromPengampu($username)
+        {
             $this->db->where('status', 'Proses');
-            $this->db->where('departement', $departement);
+            $this->db->where('pengampu', $username);
+            $query = $this->db->get('request');
+            return $query->result();
+        }
+
+        function getrequestAdmin()
+        {
+            $this->db->where('status', 'Proses');
             $query = $this->db->get('request');
             return $query->result();
         }
@@ -107,7 +115,7 @@
                 $this->db->update('request', $data);
             }else if($action=='downvote'){
                 $data = array(
-                    'downvote'  =>$this->input->post('upvote') + 1,
+                    'downvote'  =>$this->input->post('downvote') + 1,
                     $jabatan    =>1
                 );
                 $this->db->where('id', $id);
@@ -121,7 +129,7 @@
             $tanggal2=date('d-m-Y');
             $data = array(
                 'tanggal_acc'   =>$tanggal2,
-                'status'        =>"Approve"
+                'status'        =>"Approved"
             );
             $this->db->where('id', $id);
             $this->db->update('request', $data);
@@ -136,6 +144,12 @@
             $this->db->update('request', $data);
         }
 
+        function getrequestHistory($departement){
+            $this->db->where('departement', $departement);
+            $this->db->where('status !=', 'Proses');
+            $query = $this->db->get('request');
+            return $query->result();
+        }
 
     }
 

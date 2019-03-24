@@ -9,6 +9,10 @@
             parent::__construct();
             $this->load->helper('url','form');
             $this->load->library('form_validation');
+            $session_data = $this->session->userdata('logged in');
+            if ($session_data['status']!='superadmin') {
+                redirect('Welcome','refresh');
+            }
         }
 
         public function index()
@@ -126,16 +130,15 @@
         public function update($id)
         {
             $this->form_validation->set_rules('name','Name','trim|required');
-
             $this->load->model('Auth');
             $tampil['list_user']=$this->Auth->getUser($id);
+            $tampil['manager']=$this->Auth->getManager();
             if($this->form_validation->run() == FALSE) {
                 $this->load->view('superadmin/admin',$tampil);
             } else {
                 //$data = array('upload_data' => $this->upload->data());
                 $this->Auth->updateUser($id);
                 redirect('Superadmin/index','refresh');
-
             }
         }
 
@@ -160,6 +163,48 @@
             $this->load->model('Auth');
             $this->Auth->deleteUser($id);
             redirect('Superadmin/tabel','refresh');
+        }
+
+        public function accRequest($id)
+        {
+            $this->load->model('Request');
+            $this->Request->accRequest($id);
+            redirect('Superadmin/request','refresh');
+        }
+
+        public function declineRequest($id)
+        {
+            $this->load->model('Request');
+            $this->Request->declineRequest($id);
+            redirect('Superadmin/request','refresh');
+        }
+
+        public function actionRequest()
+        {
+            $this->load->model('Request');
+            $this->Request->actionRequest();
+            redirect('Superadmin/request','refresh');
+        }
+
+        public function accReplace($id)
+        {
+            $this->load->model('Request');
+            $this->Request->accReplace($id);
+            redirect('Superadmin/replace','refresh');
+        }
+
+        public function declineReplace($id)
+        {
+            $this->load->model('Replace');
+            $this->Replace->declineReplace($id);
+            redirect('Superadmin/replace','refresh');
+        }
+
+        public function actionReplace()
+        {
+            $this->load->model('Replace');
+            $this->Replace->actionReplace();
+            redirect('Superadmin/replace','refresh');
         }
 
 

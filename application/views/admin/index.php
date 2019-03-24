@@ -1,4 +1,10 @@
-<?php $this->load->view('admin/header');?>
+<?php $this->load->view('admin/header');
+$session_data = $this->session->userdata('logged in');
+$data['id']= $session_data['id'];
+$data['name'] = $session_data['name'];
+$data['status'] = $session_data['status'];
+$data['jabatan'] = $session_data['jabatan'];
+?>
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -8,6 +14,13 @@
             </div>
             <!-- /.row -->
             <div class="row">
+                <?php if( !$data['jabatan']) {?>
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>Anda belum memiliki jabatan!</strong> Hubungi Superadmin
+                </div>
+                <?php } ?>
+
                 <div class="col-lg-3 col-md-6">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -65,6 +78,15 @@
                                 </div>
                             </div>
                         </div>
+                        <?php if($data['jabatan'] != 'Supervisor'){ ?>
+                            <a href="#" onClick="alert('Hanya Super Admin dan Supervisor yang bisa mengakses Replace page!')">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                            </a>
+                        <?php }else {?>
                         <a href="<?=site_url()?>/Admin/replace">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
@@ -72,6 +94,7 @@
                                 <div class="clearfix"></div>
                             </div>
                         </a>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">

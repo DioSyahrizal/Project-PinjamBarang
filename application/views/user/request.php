@@ -4,6 +4,7 @@ $data['id'] = $session_data['id'];
 $data['name'] = $session_data['name'];
 $data['status'] = $session_data['status'];
 $data['departement'] = $session_data['departement'];
+$data['manager'] = $session_data['manager'];
 date_default_timezone_set('Asia/Jakarta');
 $tanggal2=date('d-m-Y');
 
@@ -24,6 +25,14 @@ $tanggal2=date('d-m-Y');
 					Request
 				</div>
 				<!-- /.panel-heading -->
+				<?php if(empty($data['manager'])){ ?>
+				<div class="panel-body">
+					Manager belum disetting!
+					<br>
+					Lapor ke Super Admin terlebih dahulu
+				</div>
+				<?php } else { ?>
+
 				<div class="panel-body">
 					<div class="form-group">
 						<label>Title</label>
@@ -63,6 +72,7 @@ $tanggal2=date('d-m-Y');
 								data-departement="<?php echo $data['departement'] ?>">Add to Cart</button>
 					<!-- /.panel-body -->
 				</div>
+
 				<!-- /.panel -->
 			</div>
 
@@ -85,10 +95,11 @@ $tanggal2=date('d-m-Y');
 					<input type="hidden" name="tanggal_request" value="<?php echo $tanggal2 ?>">
 					<input type="hidden" name="requester" value="<?php echo $data['name'] ?>">
 					<input type="hidden" name="departement" value="<?php echo $data['departement'] ?>">
+					<input type="hidden" name="manager" value="<?php echo $data['manager'] ?>">
 					<button type="submit" id="submit" class="btn btn-primary btn-block">Request Barang</button>
 				<?php echo form_close(); ?>
 				<!-- /.panel -->
-			</div>
+			</div><?php } ?>
 			<!-- /.col-lg-12 -->
 		</div>
 	</div>

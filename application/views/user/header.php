@@ -52,7 +52,6 @@
     	background-color: green !important;
         color: white;
     }
-
 </style>
 	<div id="wrapper">
 
@@ -115,11 +114,17 @@
                             </ul>
                         </li>
 						<li>
-							<a href="<?=site_url()?>/User/history_request"><i class="fa fa-edit fa-fw"></i> Request History</a>
-						</li>
-						<li>
-							<a href="<?=site_url()?>/User/history_replace"><i class="fa fa-edit fa-fw"></i> Replace History</a>
-						</li>
+							<a href=""><i class="fa fa-edit fa-fw"></i> History<span class="fa arrow"></a>
+                            <ul class="nav nav-second-level">
+							<li>
+								<a href="<?=site_url()?>/User/history_request"><i class="fa fa-edit fa-fw"></i> Request History</a>
+							</li>
+							<li>
+								<a href="<?=site_url()?>/User/history_replace"><i class="fa fa-edit fa-fw"></i> Replace History</a>
+							</li>
+                            </ul>
+                        </li>
+
 						<!--<li>
 							<a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level">

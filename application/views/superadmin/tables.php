@@ -68,7 +68,7 @@
             "lengthMenu":[[6,10,15,-1],[6,10,15,"All"]],
             "responsive": true,
             "ajax":{
-				url : "<?php echo site_url('Admin/data_server/') ?>",
+				url : "<?php echo site_url('Superadmin/data_server/') ?>",
 				type : "POST"
 			},
 			"columnDefs":

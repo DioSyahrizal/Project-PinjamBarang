@@ -207,6 +207,35 @@
             redirect('Superadmin/replace','refresh');
         }
 
+        public function data_server()
+        {
+            $this->load->library('Datatables');
+            $this->datatables
+                ->select('code,nama_barang,store_location,clasification')
+                ->from('barang');
+                echo $this->datatables->generate();
+        }
+
+        public function isibarang()
+        {
+            $this->load->view('superadmin/isibarang');
+            
+        }
+
+        public function tambahbarang()
+        {
+            $this->load->model('barang');
+            $this->form_validation->set_rules('nama_barang','Nama Barang','trim|required');
+            $this->form_validation->set_rules('store_location', 'Store Location', 'trim|required');
+            if ($this->form_validation->run() === FALSE)
+            {
+                $this->load->view('superadmin/isibarang');
+
+            }else{
+                $this->barang->insertBarang();
+                $this->load->view('superadmin/tables');
+            }
+        }
 
     }
 

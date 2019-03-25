@@ -114,7 +114,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=site_url()?>/Admin">Super Admin Panel</a>
+                <a class="navbar-brand" href="<?=site_url()?>/Superadmin">Super Admin Panel</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -142,7 +142,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                        <a href="<?=site_url()?>/Superadmin/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?=site_url()?>/Superadmin/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
                             <a href=""><i class="fa fa-table fa-fw"></i> List User/Admin<span class="fa arrow"></a>
@@ -168,6 +168,9 @@
                                     <a href="<?=site_url()?>/Superadmin/replace">Tools/Device Replace</a>
                                 </li>
                             </ul>
+                        </li>
+                        <li>
+                            <a href="<?=site_url()?>/Superadmin/isibarang"><i class="fa fa-table fa-fw"></i> Add Tool/Device</a>
                         </li>
 
                     </ul>
